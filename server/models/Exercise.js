@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const exerciseschema = new Schema({
   name: {
     type: String,
     required: true,
@@ -14,11 +14,11 @@ const productSchema = new Schema({
   image: {
     type: String
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0.99
-  },
+  // price: {
+  //   type: Number,
+  //   required: true,
+  //   min: 0.99
+  // },
   quantity: {
     type: Number,
     min: 0,
@@ -31,6 +31,6 @@ const productSchema = new Schema({
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Exercise = mongoose.model('Exercise', exerciseschema);
 
-module.exports = Product;
+module.exports = Exercise;
