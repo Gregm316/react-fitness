@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from "react";
-import { useProductReducer } from './reducers'
+import { useExerciseReducer } from './reducers'
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useProductReducer({
-    products: [],
+  const [state, dispatch] = useExerciseReducer({
+    exercises: [],
     cart: [],
     cartOpen: false,
     categories: [],
