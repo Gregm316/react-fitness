@@ -12,7 +12,7 @@ function ProductItem(item) {
     image,
     name,
     _id,
-    price,
+    // price,
     quantity
   } = item;
 
@@ -50,7 +50,7 @@ function ProductItem(item) {
       </Link>
       <div>
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
+        {/* <span>${price}</span> */}
       </div>
       <button onClick={addToCart}>Add to cart</button>
     </div>
