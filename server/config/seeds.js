@@ -153,7 +153,7 @@ db.once('open', async () => {
       quantity: 1000
     },
     {
-      name: 'Lateral Raiese',
+      name: 'Lateral Raise',
       category: categories[4]._id,
       description:
         "A lateral raise is a strength training shoulder exercise characterized by lifting a pair of dumbbells away from your body in an external rotation. Lateral raises work the trapezius muscle in your upper back as well as the deltoid muscle group in your shoulders—particularly the anterior and lateral deltoids",
