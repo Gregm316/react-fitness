@@ -93,7 +93,7 @@ db.once('open', async () => {
       name: 'Lat Pulldown',
       category: categories[2]._id,
       description:
-      "A lat pulldown is a compound exercise that targets your back muscles. Perform the lat pulldown exercise by sitting in front of a cable machine with a pulldown bar. Grab the bar and bend your elbows to lower it closer towards your upper chest. Raise the bar and repeat this movement for your desired number of repetitions.",
+        "A lat pulldown is a compound exercise that targets your back muscles. Perform the lat pulldown exercise by sitting in front of a cable machine with a pulldown bar. Grab the bar and bend your elbows to lower it closer towards your upper chest. Raise the bar and repeat this movement for your desired number of repetitions.",
       image: 'tablet.jpg',
       // price: 199.99,
       quantity: 30
@@ -103,7 +103,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         "The deadlift is a movement in which your hips hinge backward to lower down and pick up a weighted barbell or kettlebell from the floor. Your back is flat throughout the movement. Some benefits of performing deadlifts include strengthening and gaining more definition in your upper and lower back, glutes, and hamstrings.",      
-        image: 'tablet.jpg',
+      image: 'tablet.jpg',
       // price: 199.99,
       quantity: 30
     },
@@ -120,42 +120,52 @@ db.once('open', async () => {
       name: 'Preacher Curl',
       category: categories[3]._id,
       description:
-        "A barbell curl is a variation of the biceps curl that uses a weighted barbell. Perform barbell curls by grabbing a barbell with a shoulder-width supinated grip (palms facing towards your body). Hinge your elbows, and lift the barbell toward your chest.",
+        "Curl the weight up, keeping your upper arms on the bench, until your forearms are vertical. Pause for a second at the top of the curl, then slowly lower the weight until your arms are fully extended once again. Count for three beats as you lower.",
       image: 'bedtime-book.jpg',
       // price: 9.99,
       quantity: 100
     },
     {
-      name: 'Preacher Curl',
+      name: 'Tricep Extensions',
       category: categories[3]._id,
       description:
-        "A barbell curl is a variation of the biceps curl that uses a weighted barbell. Perform barbell curls by grabbing a barbell with a shoulder-width supinated grip (palms facing towards your body). Hinge your elbows, and lift the barbell toward your chest.",
+        "The triceps extension is an isolation exercise that works the muscle on the back of the upper arm. This muscle, called the triceps, has three heads: the long head, the lateral head, and the medial head. The three heads work together to extend the forearm at the elbow joint",
       image: 'bedtime-book.jpg',
       // price: 9.99,
       quantity: 100
     },
     {
-      name: 'Spinning Top',
+      name: 'Close Grip Bench Press',
+      category: categories[3]._id,
+      description:
+        "What Is the Close Grip Bench Press? The close grip bench press is a compound exercise performed by lying on a flat bench and lifting a weighted barbell. This type of bench press uses a closer grip than a traditional bench press. The posture of a close grip bench press puts special emphasis on the triceps.",
+      image: 'bedtime-book.jpg',
+      // price: 9.99,
+      quantity: 100
+    },
+    {
+      name: 'Dumbbell Shoulder Press',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
+      description: 
+        "Sit on an upright bench holding a dumbbell in each hand at shoulder height with your palms facing away from you. Keep your chest up and your core braced, and look straight forward throughout the move. Press the weights directly upwards until your arms are straight and the weights touch above your head.",
       image: 'spinning-top.jpg',
       // price: 1.99,
       quantity: 1000
     },
     {
-      name: 'Set of Plastic Horses',
+      name: 'Lateral Raiese',
       category: categories[4]._id,
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
+        "A lateral raise is a strength training shoulder exercise characterized by lifting a pair of dumbbells away from your body in an external rotation. Lateral raises work the trapezius muscle in your upper back as well as the deltoid muscle group in your shoulders—particularly the anterior and lateral deltoids",
       image: 'plastic-horses.jpg',
       // price: 2.99,
       quantity: 1000
     },
     {
-      name: 'Teddy Bear',
+      name: 'Arnold Press',
       category: categories[4]._id,
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
+        "The Arnold presses is defined by a wrist rotation movement that ends when your palms face forward at the top of the press. The Arnold press uses dumbbells to work many of the main muscle groups in your upper body, including the triceps, trapezius, and the delts.",
       image: 'teddy-bear.jpg',
       // price: 7.99,
       quantity: 100
