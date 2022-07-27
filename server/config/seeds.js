@@ -5,11 +5,11 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Legs' },
+    { name: 'Chest' },
+    { name: 'Back' },
+    { name: 'Arms' },
+    { name: 'Shoulders' }
   ]);
 
   console.log('categories seeded');
@@ -18,112 +18,158 @@ db.once('open', async () => {
 
   const exercises = await Exercise.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: 'Squats',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+        'A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up.',
       image: 'cookie-tin.jpg',
       category: categories[0]._id,
       // price: 2.99,
       quantity: 500
     },
     {
-      name: 'Canned Coffee',
-      description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+      name: 'Leg Press',
       category: categories[0]._id,
+      description:
+        "The leg press is a compound weight training exercise in which the individual pushes a weight or resistance away from them using their legs. The term leg press machine refers to the apparatus used to perform this exercise. The leg press can be used to evaluate an athlete's overall lower body strength (from the gluteus Maximus to the lower leg muscles). It can help to build squat strength. If performed correctly, the inclined leg press can help develop knees to manage heavier free weights, on the other hand, it has the potential to inflict grave injury: the knees could bend the wrong way if they are locked during the exercise.",
+      image: 'canned-coffee.jpg',
       // price: 1.99,
       quantity: 500
     },
     {
-      name: 'Toilet Paper',
+      name: 'Leg Extension',
+      category: categories[0]._id,
+      description:
+        "The leg extension is a resistance weight training exercise that targets the quadriceps muscle (m. quadriceps femoris) in the legs. The exercise is done using a machine called the Leg Extension Machine. There are various manufacturers of these machines and each one is slightly different. Most gym and weight rooms will have the machine in their facility. The leg extension is an isolated exercise targeting one specific muscle group, the quadriceps.",
+      image: 'canned-coffee.jpg',
+      // price: 1.99,
+      quantity: 500
+    },
+    {
+      name: 'Leg Curls',
+      category: categories[0]._id,
+      description:
+        "The dumbbell split squat is a popular lower-body exercise to build strength and muscle one leg at a time. It can be used to teach proper lunge form, but is also valuable on its own when trained in traditional strength-focused rep ranges, such as 5-8 reps per set, or for higher reps to build muscle or for conditioning.",
+      image: 'canned-coffee.jpg',
+      // price: 1.99,
+      quantity: 500
+    },
+    {
+      name: 'Bench Press',
       category: categories[1]._id,
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
+        "The bench press, or chest press, is a weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. Although the bench press is a full-body exercise, the muscles primarily used are the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles. A barbell is generally used to hold the weight, but a pair of dumbbells can also be used.",
       image: 'toilet-paper.jpg',
       // price: 7.99,
       quantity: 20
     },
     {
-      name: 'Handmade Soap',
+      name: 'Dumbbell Fly',
       category: categories[1]._id,
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
+        "The dumbbell fly, also known as the dumbbell chest fly, is an upper body exercise that works muscle groups in your chest, shoulders, and arms. A dumbbell fly is performed by lying on a flat bench and lowering a pair of dumbbells to your sides while keeping relatively straight arms with slightly bent elbows.",
       image: 'soap.jpg',
       // price: 3.99,
       quantity: 50
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Incline Dumbell Press',
       category: categories[1]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
+        "The incline dumbbell press is a free weight exercise designed to target the chest, shoulders, and triceps, hitting each side of the body independently. Unlike the more traditional flat bench press, the incline press shifts the focus of the movement to the upper portion of the pectoral muscle groups and the front of the shoulder. This allows for greater hypertrophy (muscle growth) of the upper chest when the exercise is performed regularly.",
+        image: 'wooden-spoons.jpg',
       // price: 14.99,
       quantity: 100
     },
     {
-      name: 'Camera',
+      name: 'Barbell Bent-Over Row',
       category: categories[2]._id,
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
+        "The bent over row is a back day staple exercise and is considered one of the best muscle building back building exercises you can do. Sometimes referred to as the barbell row, the bent over row is a staple movement in most muscle building workouts. Those looking to build muscle utilize the bent over row to target their back, bicep and core muscle. Those in powerlifting and strength circles perform bent over rows to increase their strength on the big 3 movements. The bent over row is typically used to build and strengthen the muscles of the upper back (latissimus dorsi, rhomboids, and trapezius). However, it requires assistance from muscles of the low back, core, and arms to perform a bent over row correctly.",
       image: 'camera.jpg',
       // price: 399.99,
       quantity: 30
     },
     {
-      name: 'Tablet',
+      name: 'Lat Pulldown',
       category: categories[2]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
+        "A lat pulldown is a compound exercise that targets your back muscles. Perform the lat pulldown exercise by sitting in front of a cable machine with a pulldown bar. Grab the bar and bend your elbows to lower it closer towards your upper chest. Raise the bar and repeat this movement for your desired number of repetitions.",
       image: 'tablet.jpg',
       // price: 199.99,
       quantity: 30
     },
     {
-      name: 'Tales at Bedtime',
+      name: 'Deadlift',
+      category: categories[2]._id,
+      description:
+        "The deadlift is a movement in which your hips hinge backward to lower down and pick up a weighted barbell or kettlebell from the floor. Your back is flat throughout the movement. Some benefits of performing deadlifts include strengthening and gaining more definition in your upper and lower back, glutes, and hamstrings.",      
+      image: 'tablet.jpg',
+      // price: 199.99,
+      quantity: 30
+    },
+    {
+      name: 'Barbell Curl',
       category: categories[3]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
+        "A barbell curl is a variation of the biceps curl that uses a weighted barbell. Perform barbell curls by grabbing a barbell with a shoulder-width supinated grip (palms facing towards your body). Hinge your elbows, and lift the barbell toward your chest.",
       image: 'bedtime-book.jpg',
       // price: 9.99,
       quantity: 100
     },
     {
-      name: 'Spinning Top',
+      name: 'Preacher Curl',
+      category: categories[3]._id,
+      description:
+        "Curl the weight up, keeping your upper arms on the bench, until your forearms are vertical. Pause for a second at the top of the curl, then slowly lower the weight until your arms are fully extended once again. Count for three beats as you lower.",
+      image: 'bedtime-book.jpg',
+      // price: 9.99,
+      quantity: 100
+    },
+    {
+      name: 'Tricep Extensions',
+      category: categories[3]._id,
+      description:
+        "The triceps extension is an isolation exercise that works the muscle on the back of the upper arm. This muscle, called the triceps, has three heads: the long head, the lateral head, and the medial head. The three heads work together to extend the forearm at the elbow joint",
+      image: 'bedtime-book.jpg',
+      // price: 9.99,
+      quantity: 100
+    },
+    {
+      name: 'Close Grip Bench Press',
+      category: categories[3]._id,
+      description:
+        "What Is the Close Grip Bench Press? The close grip bench press is a compound exercise performed by lying on a flat bench and lifting a weighted barbell. This type of bench press uses a closer grip than a traditional bench press. The posture of a close grip bench press puts special emphasis on the triceps.",
+      image: 'bedtime-book.jpg',
+      // price: 9.99,
+      quantity: 100
+    },
+    {
+      name: 'Dumbbell Shoulder Press',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
+      description: 
+        "Sit on an upright bench holding a dumbbell in each hand at shoulder height with your palms facing away from you. Keep your chest up and your core braced, and look straight forward throughout the move. Press the weights directly upwards until your arms are straight and the weights touch above your head.",
       image: 'spinning-top.jpg',
       // price: 1.99,
       quantity: 1000
     },
     {
-      name: 'Set of Plastic Horses',
+      name: 'Lateral Raise',
       category: categories[4]._id,
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
+        "A lateral raise is a strength training shoulder exercise characterized by lifting a pair of dumbbells away from your body in an external rotation. Lateral raises work the trapezius muscle in your upper back as well as the deltoid muscle group in your shoulders—particularly the anterior and lateral deltoids",
       image: 'plastic-horses.jpg',
       // price: 2.99,
       quantity: 1000
     },
     {
-      name: 'Teddy Bear',
+      name: 'Arnold Press',
       category: categories[4]._id,
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
+        "The Arnold presses is defined by a wrist rotation movement that ends when your palms face forward at the top of the press. The Arnold press uses dumbbells to work many of the main muscle groups in your upper body, including the triceps, trapezius, and the delts.",
       image: 'teddy-bear.jpg',
       // price: 7.99,
       quantity: 100
     },
-    {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      // price: 9.99,
-      quantity: 600
-    }
   ]);
 
   console.log('exercises seeded');
