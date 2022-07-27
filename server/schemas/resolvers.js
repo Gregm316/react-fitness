@@ -46,6 +46,7 @@ const resolvers = {
           path: 'orders.exercises',
           populate: 'category'
         });
+        const order = new Order({ exercises: args.exercises });
 
         return user.orders.id(_id);
       }
