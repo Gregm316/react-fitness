@@ -112,6 +112,10 @@ img {
   max-width: 100%;
 }
 
+.dumbbell {
+  max-width: 5%;
+}
+
 span[role="img"] {
   cursor: default;
 }
