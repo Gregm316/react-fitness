@@ -19,43 +19,26 @@ const CartItem = ({ item }) => {
 
   const onChangeSet = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      _id: item._id,
+      setQuantity: parseInt(value)
+    });
+    idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
 
-    } else {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: item._id,
-        purchaseQuantity: parseInt(value)
-      });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
-
-    }
   }
 
   const onChangeRep = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      _id: item._id,
+      repQuantity: parseInt(value)
+    });
+    idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
 
-    } else {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: item._id,
-        purchaseQuantity: parseInt(value)
-      });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
-
-    }
   }
+
 
   return (
     <div className="flex-row">
@@ -68,9 +51,11 @@ const CartItem = ({ item }) => {
       <div>
         <div>{item.name}{/*, ${item.price}*/}</div>
         <div>
-          <span>Sets:</span>
+          <span>Sets :</span>
           <input
             type="number"
+            min={1}
+            max={100}
             placeholder="1"
             value={item.setQuantity}
             onChange={onChangeSet}
@@ -79,6 +64,8 @@ const CartItem = ({ item }) => {
           <span>Reps:</span>
           <input
             type="number"
+            min={1}
+            max={100}
             placeholder="1"
             value={item.repQuantity}
             onChange={onChangeRep}
