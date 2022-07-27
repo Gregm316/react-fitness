@@ -43,8 +43,9 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          {/* <span role="img" aria-label="Exercise Emoji"></span> */}
+          <img className="dumbbell" src="images/dumbbell-pic.png" alt="Dumbbell"></img>
+          React Fitness
         </Link>
       </h1>
 
