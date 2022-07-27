@@ -5,13 +5,14 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-function ProductItem(item) {
+function ExerciseItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
     image,
     name,
     _id,
+    // price,
     quantity
   } = item;
 
@@ -32,7 +33,7 @@ function ProductItem(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 }
+        exercise: { ...item, purchaseQuantity: 1 }
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
@@ -40,7 +41,7 @@ function ProductItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
+      <Link to={`/exercises/${_id}`}>
         <img
           alt={name}
           src={`/images/${image}`}
@@ -49,11 +50,11 @@ function ProductItem(item) {
       </Link>
       <div>
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span></span>
+        {/* <span>${price}</span> */}
       </div>
       <button onClick={addToCart}>Add to cart</button>
     </div>
   );
 }
 
-export default ProductItem;
+export default ExerciseItem;
