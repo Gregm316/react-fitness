@@ -129,7 +129,8 @@ function Detail() {
             alt={currentExercise.name}
           /> */}
           
-          <img class="static" src={`/images/${currentExercise.image}`}/><img class="active" src="https://lh4.googleusercontent.com/i1RprwcvxhbN2TAMunNxS4RiNVT0DvlD9FNQCvPFuJ0=w140-h165-no"></img>
+          <img className="static" src={`/images/${currentExercise.image}`}/>
+          <img className="active" src={`/images/${currentExercise.demo}`}></img>
 
         </div>
       ) : null}

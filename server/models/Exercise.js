@@ -14,6 +14,9 @@ const exerciseschema = new Schema({
   image: {
     type: String
   },
+  demo: {
+    type: String
+  },
   // price: {
   //   type: Number,
   //   required: true,

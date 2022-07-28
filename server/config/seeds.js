@@ -22,6 +22,7 @@ db.once('open', async () => {
       description:
         'A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up.',
       image: 'squats.png',
+      demo: 'squat-demo.gif',
       category: categories[0]._id,
       // price: 2.99,
       quantity: 500
