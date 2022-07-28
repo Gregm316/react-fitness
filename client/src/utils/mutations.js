@@ -1,72 +1,52 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_EXERCISE = gql`
-  query getExercises($category: ID) {
-    exercises(category: $category) {
-      _id
-      name
-      description
-
-      quantity
-      image
-      category {
+export const LOGIN = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
         _id
       }
     }
   }
 `;
 
-export const QUERY_CHECKOUT = gql`
-  query getCheckout($exercises: [ID]!) {
-    checkout(exercises: $exercises) {
-      session
-    }
-  }
-`;
-
-export const QUERY_ALL_EXERCISE = gql`
-  {
-    exercises {
-      _id
-      name
-      description
-
-      quantity
-      sets
-      weight
-      category {
+export const ADD_ORDER = gql`
+  mutation addOrder($exercises: [ID]!) {
+    addOrder(exercises: $exercises) {
+      purchaseDate
+      exercises {
+        _id
         name
+        description
+
+        quantity
+        sets
+        weight
+        category {
+          name
+        }
       }
     }
   }
 `;
 
-export const QUERY_CATEGORIES = gql`
-  {
-    categories {
-      _id
-      name
-    }
-  }
-`;
-
-export const QUERY_USER = gql`
-  {
-    user {
-      firstName
-      lastName
-      orders {
+export const ADD_USER = gql`
+  mutation addUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addUser(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      user {
         _id
-        purchaseDate
-        exercises {
-          _id
-          name
-          description
-          sets
-          weight
-          quantity
-          image
-        }
       }
     }
   }

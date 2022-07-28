@@ -1,6 +1,6 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
+  --primary: #168ea3;
+  --secondary: #a1a2a4;
   --tertiary: #B12704;
   --light: #fafafa;
   --dark: #272f32;
@@ -161,6 +161,8 @@ input:focus {
 .mx-1 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
+  list-style: none;
+
 }
 
 .mx-2 {
