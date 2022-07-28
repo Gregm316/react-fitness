@@ -19,6 +19,10 @@ body {
   min-height: 100%;
 }
 
+.background-color{
+  background-color: beige;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -208,6 +212,7 @@ input:focus {
   border-radius: 25px;
   margin: 10px;
   text-align: center;
+  background-color: white;
 }
 
 .card:hover {
@@ -236,8 +241,4 @@ input:focus {
 
 .static:hover {
   opacity:0;
-}
-
-.img-demo{
-  width: 500px;
 }
