@@ -41,7 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className='background-color'>
           <StoreProvider>
             <Nav />
             <Routes>
