@@ -8,6 +8,7 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   UPDATE_CART_REPS,
+  UPDATE_CART_WEIGHT,
   ADD_TO_CART,
   UPDATE_EXERCISE,
 } from '../utils/actions';
@@ -73,6 +74,15 @@ function Detail() {
       idbPromise('cart', 'put', {
         ...itemInCart,
         repQuantity: parseInt(itemInCart.repQuantity) + 1,
+      });
+      dispatch({
+        type: UPDATE_CART_WEIGHT,
+        _id: id,
+        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
       });
       //================================================
     } else {

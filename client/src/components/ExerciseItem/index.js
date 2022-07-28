@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS } from "../../utils/actions";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function ExerciseItem(item) {
@@ -39,6 +39,15 @@ function ExerciseItem(item) {
       idbPromise('cart', 'put', {
         ...itemInCart,
         repQuantity: parseInt(itemInCart.repQuantity) + 1
+      });
+      dispatch({
+        type: UPDATE_CART_WEIGHT,
+        _id: _id,
+        weightQuantity: parseInt(itemInCart.weightQuantity) + 1
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        weightQuantity: parseInt(itemInCart.weightQuantity) + 1
       });
       //============================================================
     } else {

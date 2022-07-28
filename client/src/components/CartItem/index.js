@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS} from "../../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT} from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useState, useEffect } from "react";
 import './style.css'
@@ -125,6 +125,26 @@ const CartItem = ({ item }) => {
     }
   }
 
+  const onChangeWeight = (e) => {
+    const value = e.target.value;
+    if (value === '0') {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: item._id
+      });
+      idbPromise('cart', 'delete', { ...item });
+
+    } else {
+      dispatch({
+        type: UPDATE_CART_WEIGHT,
+        _id: item._id,
+        weightQuantity: parseInt(value)
+      });
+      idbPromise('cart', 'put', { ...item, weightQuantity: parseInt(value) });
+
+    }
+  }
+
   return (
     <div className="flex-row exercise-card">
       <div>
@@ -166,9 +186,8 @@ const CartItem = ({ item }) => {
             max={500}
             step={5}
             placeholder="100"
-            // value={item.weightQuantity}
-            // onChange={onChangeWeight}
-            onChange={(e) => setWeight(e.target.value)}
+            value={item.weightQuantity}
+            onChange={onChangeWeight}
           />
           <span>lbs.</span>
           <br></br>
