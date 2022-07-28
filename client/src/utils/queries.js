@@ -9,6 +9,7 @@ export const QUERY_EXERCISE = gql`
 
       quantity
       image
+      demo
       category {
         _id
       }
@@ -66,6 +67,7 @@ export const QUERY_USER = gql`
           weight
           quantity
           image
+          demo
         }
       }
     }
