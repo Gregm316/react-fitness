@@ -1,6 +1,6 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
+  --primary: #168ea3;
+  --secondary: #a1a2a4;
   --tertiary: #B12704;
   --light: #fafafa;
   --dark: #272f32;
@@ -11,6 +11,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 html,
@@ -75,8 +76,9 @@ a {
   font-weight: bold;
 }
 
-a:hover {
-  text-decoration: underline;
+header a:hover {
+  text-decoration: none;
+  font-size: 110%;
 }
 
 header {
@@ -161,6 +163,8 @@ input:focus {
 .mx-1 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
+  list-style: none;
+
 }
 
 .mx-2 {
@@ -207,7 +211,7 @@ input:focus {
 }
 
 .card:hover {
-  box-shadow: 10px 10px;
+  box-shadow: gray 10px 10px;
 }
 
 .error-text {
@@ -232,8 +236,4 @@ input:focus {
 
 .static:hover {
   opacity:0;
-}
-
-.img-demo{
-  width: 500px;
 }
