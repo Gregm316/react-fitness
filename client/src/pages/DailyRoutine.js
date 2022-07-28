@@ -133,4 +133,3 @@ const DailyRoutine = () => {
 
 export default DailyRoutine;
 // export default Cart;
-

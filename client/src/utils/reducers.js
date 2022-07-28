@@ -3,6 +3,7 @@ import {
   UPDATE_EXERCISE,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
+  UPDATE_CART_REPS,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
@@ -41,6 +42,24 @@ export const reducer = (state, action) => {
         cart: state.cart.map((exercise) => {
           if (action._id === exercise._id) {
             exercise.purchaseQuantity = action.purchaseQuantity;
+            //==========================================
+            exercise.repQuantity = action.repQuantity;
+            //==========================================
+          }
+          return exercise;
+        }),
+      };
+
+    case UPDATE_CART_REPS:
+      return {
+        ...state,
+        cartOpen: true,
+        cart: state.cart.map((exercise) => {
+          if (action._id === exercise._id) {
+            exercise.repQuantity = action.repQuantity;
+            //==========================================
+            exercise.repQuantity = action.repQuantity;
+            //==========================================
           }
           return exercise;
         }),

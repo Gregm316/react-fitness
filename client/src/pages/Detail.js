@@ -7,6 +7,7 @@ import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
+  UPDATE_CART_REPS,
   ADD_TO_CART,
   UPDATE_EXERCISE,
 } from '../utils/actions';
@@ -63,6 +64,17 @@ function Detail() {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
+      //================================================
+      dispatch({
+        type: UPDATE_CART_REPS,
+        _id: id,
+        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+      });
+      //================================================
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -109,7 +121,7 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart />
+      {/* <Cart /> */}
     </>
   );
 }

@@ -12,6 +12,7 @@ const typeDefs = gql`
     description: String
     image: String
     quantity: Int
+    reps: Int
 
     category: Category
   }
@@ -52,7 +53,7 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(exercises: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateExercise(_id: ID!, quantity: Int!): Exercise
+    updateExercise(_id: ID!, quantity: Int! rep: Int!): Exercise
     login(email: String!, password: String!): Auth
   }
 `;

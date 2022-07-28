@@ -1,6 +1,7 @@
 .daily-img{
-  max-width: 200px;
+  max-height: 140px;
   margin-left: 50px;
+  /* margin-top: 15px; */
 }
 
 .exercise-info{
@@ -13,4 +14,5 @@
   margin-right: 25px;
   border: 2px solid black;
   border-radius: 25px;
+  height: 150px;
 }

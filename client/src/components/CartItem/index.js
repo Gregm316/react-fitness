@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS} from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useState, useEffect } from "react";
 import './style.css'
@@ -65,47 +65,27 @@ const CartItem = ({ item }) => {
 
   };
 
+  // const onChangeSet = (e) => {
+  //   const value = e.target.value;
+  //   dispatch({
+  //     type: UPDATE_CART_QUANTITY,
+  //     _id: item._id,
+  //     setQuantity: parseInt(value)
+  //   });
+  //   idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
+  // }
+
+  // const onChangeRep = (e) => {
+  //   const value = e.target.value;
+  //   dispatch({
+  //     type: UPDATE_CART_QUANTITY,
+  //     _id: item._id,
+  //     repQuantity: parseInt(value)
+  //   });
+  //   idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
+  // }
+
   const onChangeSet = (e) => {
-    const value = e.target.value;
-    dispatch({
-      type: UPDATE_CART_QUANTITY,
-      _id: item._id,
-      setQuantity: parseInt(value)
-    });
-    idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
-  }
-
-  const onChangeRep = (e) => {
-    const value = e.target.value;
-    dispatch({
-      type: UPDATE_CART_QUANTITY,
-      _id: item._id,
-      repQuantity: parseInt(value)
-    });
-    idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
-  }
-
-  const onChangeWeight = (e) => {
-    const value = e.target.value;
-    dispatch({
-      type: UPDATE_CART_QUANTITY,
-      _id: item._id,
-      weightQuantity: parseInt(value)
-    });
-    idbPromise('cart', 'put', { ...item, weightQuantity: parseInt(value) });
-  }
-
-  const setValue = () => {
-    const savedSet = localStorage.getItem('set')
-    // console.log(savedSet);
-    if (savedSet === "") {
-      return
-    } else {
-      return savedSet
-    }
-  }
-
-  const onChange = (e) => {
     const value = e.target.value;
     if (value === '0') {
       dispatch({
@@ -125,6 +105,26 @@ const CartItem = ({ item }) => {
     }
   }
 
+  const onChangeRep = (e) => {
+    const value = e.target.value;
+    if (value === '0') {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: item._id
+      });
+      idbPromise('cart', 'delete', { ...item });
+
+    } else {
+      dispatch({
+        type: UPDATE_CART_REPS,
+        _id: item._id,
+        repQuantity: parseInt(value)
+      });
+      idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
+
+    }
+  }
+
   return (
     <div className="flex-row exercise-card">
       <div>
@@ -134,7 +134,7 @@ const CartItem = ({ item }) => {
         />
       </div>
       <div className='exercise-info'>
-        <div><strong>{item.name}</strong>{/*, ${item.price}*/}</div>
+        <div className=''><strong>{item.name}</strong>{/*, ${item.price}*/}</div>
         <div >
           <span>Sets:</span>
           <input
@@ -144,7 +144,7 @@ const CartItem = ({ item }) => {
             max={100}
             placeholder="1"
             value={item.purchaseQuantity}
-            onChange={onChange}
+            onChange={onChangeSet}
           />
           <br></br>
           <span>Reps:</span>
@@ -154,9 +154,8 @@ const CartItem = ({ item }) => {
             min={1}
             max={100}
             placeholder="1"
-            // value={item.repQuantity}
-            // onChange={onChangeRep}
-            onChange={(e) => setRep(e.target.value)}
+            value={item.repQuantity}
+            onChange={onChangeRep}
           />
           <br></br>
           <span>Weight:</span>

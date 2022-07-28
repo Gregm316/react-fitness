@@ -24,6 +24,11 @@ const exerciseschema = new Schema({
     min: 0,
     default: 0
   },
+  reps: {
+    type: Number,
+    min: 0,
+    default: 0
+  },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
