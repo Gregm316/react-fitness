@@ -1,16 +1,18 @@
 .daily-img{
-    max-width: 200px;
-    margin-left: 50px;
-  }
-  
-  .exercise-info{
-    margin-left: 50px;
-  }
-  
-  .exercise-card{
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
-    border: 2px solid black;
-    border-radius: 25px;
-  }
+  max-height: 140px;
+  margin-left: 50px;
+  /* margin-top: 15px; */
+}
+
+.exercise-info{
+  margin-left: 50px;
+}
+
+.exercise-card{
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border: 2px solid black;
+  border-radius: 25px;
+  height: 150px;
+}
