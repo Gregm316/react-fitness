@@ -233,3 +233,7 @@ input:focus {
 .static:hover {
   opacity:0;
 }
+
+.img-demo{
+  width: 500px;
+}
