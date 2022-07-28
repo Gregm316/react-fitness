@@ -224,3 +224,12 @@ input:focus {
 .exercise-img{
   height: 60%;
 }
+
+.static {
+  position:absolute;
+  background: white;
+}
+
+.static:hover {
+  opacity:0;
+}
