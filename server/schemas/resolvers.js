@@ -116,10 +116,20 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateExercise: async (parent, { _id, quantity }) => {
+    updateExercise: async (parent, { _id, quantity, reps, weight }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Exercise.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      //===========================================
+      const decrementReps = Math.abs(reps) * -1;
+      const decrementWeight = Math.abs(weight) * -1;
+      //===========================================
+
+      return [await Exercise.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true }), //;
+
+      //===========================================
+      Exercise.findByIdAndUpdate(_id, { $inc: { reps: decrementReps } }, { new: true }),
+      Exercise.findByIdAndUpdate(_id, { $inc: { weight: decrementWeight } }, { new: true })]
+      //===========================================
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

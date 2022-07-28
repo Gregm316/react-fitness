@@ -21,6 +21,8 @@ export const ADD_ORDER = gql`
         description
 
         quantity
+        sets
+        weight
         category {
           name
         }
