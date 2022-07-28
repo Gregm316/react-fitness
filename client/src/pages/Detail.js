@@ -124,12 +124,8 @@ function Detail() {
             </button>
           </p>
 
-          {/* <img
-            src={`/images/${currentExercise.image}`}
-            alt={currentExercise.name}
-          /> */}
-          
-          <img class="static" src={`/images/${currentExercise.image}`}/><img class="active" src="https://lh4.googleusercontent.com/i1RprwcvxhbN2TAMunNxS4RiNVT0DvlD9FNQCvPFuJ0=w140-h165-no"></img>
+          <img className="static img-demo" src={`/images/${currentExercise.image}`} />
+          <img className="active img-demo" src={`/images/${currentExercise.demo}`}></img>
 
         </div>
       ) : null}

@@ -9,6 +9,7 @@ export const QUERY_EXERCISE = gql`
 
       quantity
       image
+      demo
       category {
         _id
       }
@@ -32,6 +33,8 @@ export const QUERY_ALL_EXERCISE = gql`
       description
 
       quantity
+      sets
+      weight
       category {
         name
       }
@@ -60,9 +63,11 @@ export const QUERY_USER = gql`
           _id
           name
           description
-
+          sets
+          weight
           quantity
           image
+          demo
         }
       }
     }
