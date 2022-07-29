@@ -247,3 +247,8 @@ input:focus {
   width: 500px;
   margin-bottom: 50px;
 }
+
+.daily-img{
+  background-color: white;
+  width: 200px;
+}

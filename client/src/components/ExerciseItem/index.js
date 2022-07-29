@@ -58,6 +58,7 @@ function ExerciseItem(item) {
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
+
   }
 
   return (
@@ -69,9 +70,9 @@ function ExerciseItem(item) {
         />
         <p>{name}</p>
       </Link>
-        <div>{mgroup}</div>
-        {/* <span>${price}</span> */}
-      <button onClick={addToCart}>Add Workout</button>
+      <div>{mgroup}</div>
+      {/* <span>${price}</span> */}
+        <button onClick={addToCart}>Add Workout</button>
     </div>
   );
 }
