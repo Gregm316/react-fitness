@@ -62,7 +62,7 @@ function ExerciseItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
+    <div className="card-home px-1 py-1">
       <Link to={`/exercises/${_id}`}>
         <img className="exercise-img"
           alt={name}
