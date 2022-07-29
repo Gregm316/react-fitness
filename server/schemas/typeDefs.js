@@ -12,6 +12,7 @@ const typeDefs = gql`
     description: String
     image: String
     demo: String
+    mgroup: String
     quantity: Int
     reps: Int
     weight: Int
