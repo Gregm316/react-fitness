@@ -1,10 +1,11 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT} from "../../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useState, useEffect } from "react";
 import './style.css'
 import { storeKeyNameFromField } from '@apollo/client/utilities';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const CartItem = ({ item }) => {
@@ -146,58 +147,73 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <div className="flex-row exercise-card">
-      <div>
-        <img className='daily-img'
-          src={`/images/${item.image}`}
-          alt=""
-        />
-      </div>
-      <div className='exercise-info'>
-        <div className=''><strong>{item.name}</strong>{/*, ${item.price}*/}</div>
-        <div >
-          <span>Sets:</span>
-          <input
-            type="number"
-            name='set'
-            min={1}
-            max={100}
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChangeSet}
-          />
-          <br></br>
-          <span>Reps:</span>
-          <input
-            type="number"
-            name='rep'
-            min={1}
-            max={100}
-            placeholder="1"
-            value={item.repQuantity}
-            onChange={onChangeRep}
-          />
-          <br></br>
-          <span>Weight:</span>
-          <input
-            type="number"
-            name='weight'
-            min={0}
-            max={500}
-            step={5}
-            placeholder="100"
-            value={item.weightQuantity}
-            onChange={onChangeWeight}
-          />
-          <span>lbs.</span>
-          <br></br>
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
-            🗑️
-          </span>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm">
+          <div className="card">
+            <div className="row no-gutters">
+              <div className="col-sm-6">
+                <img className='daily-img'
+                  src={`/images/${item.image}`}
+                  alt=""
+                />
+              </div>
+              <div className="col-sm-6">
+                <div className="card-body card-text">
+                  <h5 className="card-title">{item.name}</h5>
+                  <div >
+                    <span>Sets:</span>
+                    <input
+                      type="number"
+                      name='set'
+                      min={1}
+                      max={100}
+                      placeholder="1"
+                      value={item.purchaseQuantity}
+                      onChange={onChangeSet}
+                    />
+                    <br></br>
+                    <span>Reps:</span>
+                    <input
+                      type="number"
+                      name='rep'
+                      min={1}
+                      max={100}
+                      placeholder="1"
+                      value={item.repQuantity}
+                      onChange={onChangeRep}
+                    />
+                    <br></br>
+                    <span>Weight:</span>
+                    <input
+                      type="number"
+                      name='weight'
+                      min={1}
+                      max={500}
+                      step={5}
+                      placeholder="100"
+                      value={item.weightQuantity}
+                      onChange={onChangeWeight}
+                    />
+                    <span>lbs.</span>
+                    <br></br>
+                    <span
+                      role="img"
+                      aria-label="trash"
+                      onClick={() => removeFromCart(item)}
+                    ><button className='mt-2'>
+                        🗑️ Remove
+                      </button>
+                    </span>
+                  </div>
+                  {/* <a href="#" class="btn btn-primary">View Profile</a> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <h2>Notes:</h2>
         </div>
       </div>
     </div>
@@ -205,3 +221,5 @@ const CartItem = ({ item }) => {
 }
 
 export default CartItem;
+
+

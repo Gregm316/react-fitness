@@ -1,7 +1,8 @@
 .daily-img{
-  max-height: 140px;
+  height: 150px;
+  width: auto;
   margin-left: 50px;
-  /* margin-top: 15px; */
+  margin-top: 10px;
 }
 
 .exercise-info{
@@ -15,4 +16,8 @@
   border: 2px solid black;
   border-radius: 25px;
   height: 150px;
+}
+
+.card-text{
+  margin-left: 10px;
 }
