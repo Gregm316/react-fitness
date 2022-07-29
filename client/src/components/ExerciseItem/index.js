@@ -13,7 +13,8 @@ function ExerciseItem(item) {
     name,
     _id,
     // price,
-    quantity
+    quantity,
+    mgroup
   } = item;
 
   const { cart } = state
@@ -68,10 +69,8 @@ function ExerciseItem(item) {
         />
         <p>{name}</p>
       </Link>
-      <div>
-        <div>{quantity} {pluralize("item", quantity)} in stock</div>
+        <div>{mgroup}</div>
         {/* <span>${price}</span> */}
-      </div>
       <button onClick={addToCart}>Add Workout</button>
     </div>
   );

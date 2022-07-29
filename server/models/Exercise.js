@@ -17,6 +17,9 @@ const exerciseschema = new Schema({
   demo: {
     type: String
   },
+  mgroup: {
+    type: String
+  },
   // price: {
   //   type: Number,
   //   required: true,

@@ -123,7 +123,7 @@ function Detail() {
               Remove Workout
             </button>
           </p>
-
+          <p>(Hover over image for demonstration)</p>
           <img className="static img-demo" src={`/images/${currentExercise.image}`} />
           <img className="active img-demo" src={`/images/${currentExercise.demo}`}></img>
 

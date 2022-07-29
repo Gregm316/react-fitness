@@ -10,6 +10,7 @@ export const QUERY_EXERCISE = gql`
       quantity
       image
       demo
+      mgroup
       category {
         _id
       }
@@ -68,6 +69,7 @@ export const QUERY_USER = gql`
           quantity
           image
           demo
+          mgroup
         }
       }
     }
