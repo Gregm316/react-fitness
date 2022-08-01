@@ -21,7 +21,8 @@ import { NotificationContext } from "../Notifications/NotificationProvider";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
-  const dispatchError = useContext(NotificationContext);
+  const dispatchDelete = useContext(NotificationContext);
+  const dispatchAdd = useContext(NotificationContext);
   const { id } = useParams();
 
   const [currentExercise, setCurrentExercise] = useState({});
@@ -96,18 +97,15 @@ function Detail() {
       });
       idbPromise('cart', 'put', { ...currentExercise, setQuantity: 1 });
     }
-  };
-
-  const addError = () => {
-    dispatchError({
+    dispatchAdd({
       type: "ADD_NOTIFICATION",
       payload: {
         id: v4(),
-        type: "ERROR",
-        message: `Log in to add workout! 💪✅`
+        type: "SUCCESS",
+        message: `${currentExercise.name} Added! 💪✅`
       }
     })
-  }
+  };
 
   const removeFromRoutine = () => {
     dispatch({
@@ -116,6 +114,15 @@ function Detail() {
     });
 
     idbPromise('cart', 'delete', { ...currentExercise });
+
+    dispatchDelete({
+      type: "ADD_NOTIFICATION",
+      payload: {
+        id: v4(),
+        type: "SUCCESS",
+        message: `${currentExercise.name} Removed! 🗑️❌`
+      }
+    })
   };
 
   return (
