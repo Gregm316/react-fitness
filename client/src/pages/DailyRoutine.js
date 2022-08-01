@@ -59,7 +59,8 @@ const DailyRoutine = () => {
           <div className="flex-row space-between">
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              // <button onClick={submitCheckout}>Checkout</button>
+              <div></div>
             ) : (
               <span>(log in to view workout)</span>
             )}
