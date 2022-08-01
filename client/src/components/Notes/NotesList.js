@@ -18,7 +18,6 @@ const NotesList = ({
 					handleDeleteNote={handleDeleteNote}
 				/>
 			))}
-			
 		</div>
 	);
 };

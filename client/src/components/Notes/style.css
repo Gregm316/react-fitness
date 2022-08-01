@@ -12,38 +12,17 @@ code {
 		'Courier New', monospace;
 }
 
-/* .header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-} */
-
-/* .dark-mode {
-	background-color: black;
-}
-
-.dark-mode h1 {
-	color: white;
-} */
-
 .container {
 	width: 95%;
 	margin-left: 100px;
 }
 
-.notes-list {
-	display: grid;
-	grid-gap: 1px;
-	grid-template-columns: repeat(
-		auto-fill,
-		minmax(250px, 1fr)
-	);
-}
-
 .note.new {
-	background-color: #67d7cc;
-	padding: 5px;
+	background-color: #168ea3;
+	padding: 6px;
 	height: 50px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 textarea:focus {
@@ -107,5 +86,12 @@ textarea:focus {
 .note-text{
 	border: none;
 	resize: none;
-	background-color: #67d7cc;
+	background-color: #168ea3;
+	color: white;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
+	opacity: 1; /* Firefox */
+  }
+  
