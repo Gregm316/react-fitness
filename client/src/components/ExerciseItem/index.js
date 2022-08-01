@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
+import { ADD_TO_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { NotificationContext } from "../../Notifications/NotificationProvider";
 import { v4 } from "uuid";
@@ -26,17 +26,17 @@ function ExerciseItem(item) {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
     if (itemInCart) {
       dispatch({
-        type: UPDATE_CART_QUANTITY,
+        type: UPDATE_SETS,
         _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        setQuantity: parseInt(itemInCart.setQuantity) + 1
       });
       idbPromise('cart', 'put', {
         ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        setQuantity: parseInt(itemInCart.setQuantity) + 1
       });
       //============================================================
       dispatch({
-        type: UPDATE_CART_REPS,
+        type: UPDATE_REPS,
         _id: _id,
         repQuantity: parseInt(itemInCart.repQuantity) + 1
       });
@@ -45,7 +45,7 @@ function ExerciseItem(item) {
         repQuantity: parseInt(itemInCart.repQuantity) + 1
       });
       dispatch({
-        type: UPDATE_CART_WEIGHT,
+        type: UPDATE_WEIGHT,
         _id: _id,
         weightQuantity: parseInt(itemInCart.weightQuantity) + 1
       });
@@ -56,10 +56,10 @@ function ExerciseItem(item) {
       //============================================================
     } else {
       dispatch({
-        type: ADD_TO_CART,
-        exercise: { ...item, purchaseQuantity: 1 }
+        type: ADD_TO_ROUTINE,
+        exercise: { ...item, setQuantity: 1 }
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...item, setQuantity: 1 });
     }
     //============================================================
 

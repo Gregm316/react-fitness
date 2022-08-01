@@ -6,7 +6,7 @@ import { idbPromise } from '../utils/helpers';
 import CartItem from '../components/CartItem';
 import Auth from '../utils/auth';
 import { useStoreContext } from '../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
+import { TOGGLE_ROUTINE, ADD_MULTIPLE_TO_ROUTINE } from '../utils/actions';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -25,7 +25,7 @@ const DailyRoutine = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      dispatch({ type: ADD_MULTIPLE_TO_CART, exercises: [...cart] });
+      dispatch({ type: ADD_MULTIPLE_TO_ROUTINE, exercises: [...cart] });
     }
 
     if (!state.cart.length) {
@@ -37,7 +37,7 @@ const DailyRoutine = () => {
     const exerciseIds = [];
 
     state.cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < item.setQuantity; i++) {
         exerciseIds.push(item._id);
       }
     });
