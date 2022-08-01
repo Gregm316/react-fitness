@@ -11,6 +11,7 @@ import Auth from '../../utils/auth';
 function ExerciseItem(item) {
   const [state, dispatch] = useStoreContext();
   const dispatchAdd = useContext(NotificationContext);
+  const dispatchError = useContext(NotificationContext);
 
   const {
     image,
@@ -22,6 +23,17 @@ function ExerciseItem(item) {
   } = item;
 
   const { cart } = state
+
+  const addError = () => {
+    dispatchError({
+      type: "ADD_NOTIFICATION",
+      payload: {
+        id: v4(),
+        type: "ERROR",
+        message: `Log in to add workout!`
+      }
+    })
+  }
 
   const addToRoutine = () => {
     const itemInRoutine = cart.find((cartItem) => cartItem._id === _id)
@@ -90,7 +102,7 @@ function ExerciseItem(item) {
       {Auth.loggedIn() ? (
         <button onClick={addToRoutine}>Add Workout</button>
       ) : (
-        <span><strong>(log in to add)</strong></span>
+          <button onClick={addError}>Add Workout</button>
       )}
 
     </div>
