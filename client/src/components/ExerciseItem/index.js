@@ -4,7 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-import { NotificationContext } from "../../Notifications/NotificationProvider";
+import { NotificationContext } from "../Notifications/NotificationProvider";
 import { v4 } from "uuid";
 import Auth from '../../utils/auth';
 

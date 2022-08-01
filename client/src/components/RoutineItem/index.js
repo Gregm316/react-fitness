@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, ReactDOM } from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 import './style.css'
 import { storeKeyNameFromField } from '@apollo/client/utilities';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { NotificationContext } from '../../Notifications/NotificationProvider';
+import { NotificationContext } from '../Notifications/NotificationProvider';
 import { v4 } from "uuid";
+import Notes from '../Notes/Index.js'
+import Masonry from 'react-masonry-css'
 
 
 const RoutineItem = ({ item }) => {

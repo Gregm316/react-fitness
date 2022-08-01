@@ -17,7 +17,7 @@ import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 import Auth from '../utils/auth';
 import { v4 } from "uuid";
-import { NotificationContext } from "../Notifications/NotificationProvider";
+import { NotificationContext } from "../components/Notifications/NotificationProvider";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
