@@ -81,7 +81,7 @@ function ExerciseItem(item) {
       payload: {
         id: v4(),
         type: "SUCCESS",
-        message: `${name} Added!`
+        message: `${name} Added! 💪✅`
       }
     })
 
@@ -100,7 +100,7 @@ function ExerciseItem(item) {
       <div>{mgroup}</div>
       {/* <span>${price}</span> */}
       {Auth.loggedIn() ? (
-        <button onClick={addToRoutine}>Add Workout</button>
+        <button className="mb-5" onClick={addToRoutine}>Add Workout 💪</button>
       ) : (
         <span><strong><a href="Login">(log in to add)</a></strong></span>
       )}
