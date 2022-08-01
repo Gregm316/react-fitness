@@ -103,7 +103,6 @@ function ExerciseItem(item) {
         <button className="mb-5" onClick={addToRoutine}>Add Workout 💪</button>
       ) : (
         <span><strong><a href="Login">(log in to add)</a></strong></span>
-
       )}
 
     </div>
