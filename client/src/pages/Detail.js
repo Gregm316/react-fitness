@@ -15,6 +15,7 @@ import {
 import { QUERY_EXERCISE } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
+import Auth from '../utils/auth';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -115,13 +116,16 @@ function Detail() {
 
           <p>
             {/* <strong>Price:</strong>${currentExercise.price}{' '} */}
-            <button onClick={addToRoutine}>Add Workout</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentExercise._id)}
-              onClick={removeFromRoutine}
-            >
-              Remove Workout
-            </button>
+            {Auth.loggedIn() ? (
+              <div>
+              <button onClick={addToRoutine}>Add Workout</button>
+              <button disabled={!cart.find((p) => p._id === currentExercise._id)} onClick={removeFromRoutine}>Remove Workout</button>
+              </div>
+            ) : (
+              <span><strong>(log in to add workout)</strong></span>
+            )}
+            
+
           </p>
           <p>(Hover over image for demonstration)</p>
           <img className="static img-demo" src={`/images/${currentExercise.image}`} />

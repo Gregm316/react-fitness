@@ -6,6 +6,7 @@ import { ADD_TO_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../u
 import { idbPromise } from "../../utils/helpers";
 import { NotificationContext } from "../../Notifications/NotificationProvider";
 import { v4 } from "uuid";
+import Auth from '../../utils/auth';
 
 function ExerciseItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -16,7 +17,7 @@ function ExerciseItem(item) {
     name,
     _id,
     // price,
-    quantity,
+    // quantity,
     mgroup
   } = item;
 
@@ -86,7 +87,12 @@ function ExerciseItem(item) {
       </Link>
       <div>{mgroup}</div>
       {/* <span>${price}</span> */}
-      <button onClick={addToRoutine}>Add Workout</button>
+      {Auth.loggedIn() ? (
+        <button onClick={addToRoutine}>Add Workout</button>
+      ) : (
+        <span><strong>(log in to add)</strong></span>
+      )}
+
     </div>
   );
 }
