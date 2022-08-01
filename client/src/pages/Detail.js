@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -16,9 +16,12 @@ import { QUERY_EXERCISE } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 import Auth from '../utils/auth';
+import { v4 } from "uuid";
+import { NotificationContext } from "../Notifications/NotificationProvider";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
+  const dispatchError = useContext(NotificationContext);
   const { id } = useParams();
 
   const [currentExercise, setCurrentExercise] = useState({});
@@ -94,6 +97,17 @@ function Detail() {
       idbPromise('cart', 'put', { ...currentExercise, setQuantity: 1 });
     }
   };
+
+  const addError = () => {
+    dispatchError({
+      type: "ADD_NOTIFICATION",
+      payload: {
+        id: v4(),
+        type: "ERROR",
+        message: `Log in to add workout!`
+      }
+    })
+  }
 
   const removeFromRoutine = () => {
     dispatch({
