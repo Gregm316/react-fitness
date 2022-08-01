@@ -4,7 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-import { NotificationContext } from "../Notifications/NotificationProvider";
+import { NotificationContext } from "../../Notifications/NotificationProvider";
 import { v4 } from "uuid";
 import Auth from '../../utils/auth';
 
@@ -81,7 +81,7 @@ function ExerciseItem(item) {
       payload: {
         id: v4(),
         type: "SUCCESS",
-        message: `${name} Added!`
+        message: `${name} Added! 💪✅`
       }
     })
 
@@ -100,7 +100,7 @@ function ExerciseItem(item) {
       <div>{mgroup}</div>
       {/* <span>${price}</span> */}
       {Auth.loggedIn() ? (
-        <button onClick={addToRoutine}>Add Workout</button>
+        <button className="mb-5" onClick={addToRoutine}>Add Workout 💪</button>
       ) : (
         <span><strong><a href="Login">(log in to add)</a></strong></span>
 

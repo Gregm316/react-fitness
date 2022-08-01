@@ -17,7 +17,7 @@ import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 import Auth from '../utils/auth';
 import { v4 } from "uuid";
-import { NotificationContext } from "../components/Notifications/NotificationProvider";
+import { NotificationContext } from "../Notifications/NotificationProvider";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -104,7 +104,7 @@ function Detail() {
       payload: {
         id: v4(),
         type: "ERROR",
-        message: `Log in to add workout!`
+        message: `Log in to add workout! 💪✅`
       }
     })
   }
@@ -132,8 +132,8 @@ function Detail() {
             {/* <strong>Price:</strong>${currentExercise.price}{' '} */}
             {Auth.loggedIn() ? (
               <div>
-              <button onClick={addToRoutine}>Add Workout</button>
-              <button disabled={!cart.find((p) => p._id === currentExercise._id)} onClick={removeFromRoutine}>Remove Workout</button>
+              <button onClick={addToRoutine}>Add Workout 💪</button>
+              <button disabled={!cart.find((p) => p._id === currentExercise._id)} onClick={removeFromRoutine}>Remove Workout 🗑️</button>
               </div>
             ) : (
               <span><strong><a href="../Login">(log in to add workout)</a></strong></span>

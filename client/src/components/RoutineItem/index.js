@@ -6,10 +6,8 @@ import { useState, useEffect } from "react";
 import './style.css'
 import { storeKeyNameFromField } from '@apollo/client/utilities';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { NotificationContext } from '../Notifications/NotificationProvider';
+import { NotificationContext } from '../../Notifications/NotificationProvider';
 import { v4 } from "uuid";
-import Notes from '../Notes/Index.js'
-import Masonry from 'react-masonry-css'
 
 
 const RoutineItem = ({ item }) => {
@@ -74,7 +72,7 @@ const RoutineItem = ({ item }) => {
       payload: {
         id: v4(),
         type: "SUCCESS",
-        message: `${item.name} Removed!`
+        message: `${item.name} Removed! 🗑️❌`
       }
     })
 
@@ -173,7 +171,7 @@ const RoutineItem = ({ item }) => {
                 />
               </div>
               <div className="col-sm-6">
-                <div className="card-body card-text">
+                <div className="card-body card-text card-spacing">
                   <h5 className="card-title">{item.name}</h5>
                   <div >
                     <span>Sets:</span>
@@ -227,7 +225,7 @@ const RoutineItem = ({ item }) => {
           </div>
         </div>
         <div className="col-sm-6">
-          <div className="row">
+          <div className="row card-spacing">
             <div className="card">
               <div className="row no-gutters notes-card">
                 <h2>Notes:</h2>

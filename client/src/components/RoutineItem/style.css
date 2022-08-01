@@ -1,5 +1,5 @@
 .daily-img{
-  height: 150px;
+  height: 200px;
   width: auto;
   margin-left: 50px;
   margin-top: 10px;
@@ -15,7 +15,7 @@
   margin-right: 25px;
   border: 2px solid black;
   border-radius: 25px;
-  height: 150px;
+  height: 200px;
 }
 
 .card-text{
@@ -23,5 +23,9 @@
 }
 
 .notes-card{
-  height: 206px;
+  height: 210px;
+}
+
+.card-spacing{
+  margin-bottom: 10px;
 }

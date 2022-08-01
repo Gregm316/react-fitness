@@ -17,7 +17,7 @@ import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import DailyRoutine from './pages/DailyRoutine';
-import { NotificationContext } from '../Notifications/NotificationProvider';
+import { NotificationContext } from './Notifications/NotificationProvider';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

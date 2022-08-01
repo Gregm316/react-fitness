@@ -207,7 +207,7 @@ input:focus {
 }
 
 .card-home {
-  width: 22%;
+  width: 300px;
   border: 2px solid black;
   border-radius: 25px;
   margin: 10px;
@@ -224,7 +224,7 @@ input:focus {
 }
 
 /* @media screen and (max-width: 768px) {
-  .card {
+  .card-home {
     width: 100%;
     height: 100%;
   }
@@ -250,13 +250,14 @@ input:focus {
 
 .img-demo {
   width: 500px;
-  margin-bottom: 50px;
+  margin-bottom: 300px;
 }
 
-.daily-img {
+/* .daily-img {
   background-color: white;
-  width: 200px;
-}
+  height: 200px;
+  width: auto;
+} */
 
 .notification-wrapper {
   position: fixed;
