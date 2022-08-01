@@ -22,36 +22,36 @@ function ExerciseItem(item) {
 
   const { cart } = state
 
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    if (itemInCart) {
+  const addToRoutine = () => {
+    const itemInRoutine = cart.find((cartItem) => cartItem._id === _id)
+    if (itemInRoutine) {
       dispatch({
         type: UPDATE_SETS,
         _id: _id,
-        setQuantity: parseInt(itemInCart.setQuantity) + 1
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        setQuantity: parseInt(itemInCart.setQuantity) + 1
+        ...itemInRoutine,
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1
       });
       //============================================================
       dispatch({
         type: UPDATE_REPS,
         _id: _id,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1
+        ...itemInRoutine,
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1
       });
       dispatch({
         type: UPDATE_WEIGHT,
         _id: _id,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1
+        ...itemInRoutine,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1
       });
       //============================================================
     } else {
@@ -86,7 +86,7 @@ function ExerciseItem(item) {
       </Link>
       <div>{mgroup}</div>
       {/* <span>${price}</span> */}
-      <button onClick={addToCart}>Add Workout</button>
+      <button onClick={addToRoutine}>Add Workout</button>
     </div>
   );
 }

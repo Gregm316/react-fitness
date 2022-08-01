@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
-import CartItem from '../components/CartItem';
+import RoutineItem from '../components/RoutineItem';
 import Auth from '../utils/auth';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_ROUTINE, ADD_MULTIPLE_TO_ROUTINE } from '../utils/actions';
@@ -23,13 +23,13 @@ const DailyRoutine = () => {
   }, [data]);
 
   useEffect(() => {
-    async function getCart() {
+    async function getRoutine() {
       const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_ROUTINE, exercises: [...cart] });
     }
 
     if (!state.cart.length) {
-      getCart();
+      getRoutine();
     }
   }, [state.cart.length, dispatch]);
 
@@ -53,7 +53,7 @@ const DailyRoutine = () => {
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+            <RoutineItem key={item._id} item={item} />
           ))}
 
           <div className="flex-row space-between">
@@ -78,4 +78,4 @@ const DailyRoutine = () => {
 };
 
 export default DailyRoutine;
-// export default Cart;
+// export default Routine;

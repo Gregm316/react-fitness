@@ -10,7 +10,7 @@ import { NotificationContext } from '../../Notifications/NotificationProvider';
 import { v4 } from "uuid";
 
 
-const CartItem = ({ item }) => {
+const RoutineItem = ({ item }) => {
 
 
   //======================================
@@ -60,7 +60,7 @@ const CartItem = ({ item }) => {
   // });
   //======================================
 
-  const removeFromCart = item => {
+  const removeFromRoutine = item => {
     dispatch({
       type: REMOVE_FROM_ROUTINE,
       _id: item._id
@@ -212,7 +212,7 @@ const CartItem = ({ item }) => {
                     <span
                       role="img"
                       aria-label="trash"
-                      onClick={() => removeFromCart(item)}
+                      onClick={() => removeFromRoutine(item)}
                     ><button className='mt-2'>
                         🗑️ Remove
                       </button>
@@ -232,6 +232,6 @@ const CartItem = ({ item }) => {
   );
 }
 
-export default CartItem;
+export default RoutineItem;
 
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import Cart from '../components/Cart';
+import Routine from '../components/Routine';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_ROUTINE,
@@ -53,36 +53,36 @@ function Detail() {
     }
   }, [exercises, data, loading, dispatch, id]);
 
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
+  const addToRoutine = () => {
+    const itemInRoutine = cart.find((cartItem) => cartItem._id === id);
+    if (itemInRoutine) {
       dispatch({
         type: UPDATE_SETS,
         _id: id,
-        setQuantity: parseInt(itemInCart.setQuantity) + 1,
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        setQuantity: parseInt(itemInCart.setQuantity) + 1,
+        ...itemInRoutine,
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1,
       });
       //================================================
       dispatch({
         type: UPDATE_REPS,
         _id: id,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+        ...itemInRoutine,
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1,
       });
       dispatch({
         type: UPDATE_WEIGHT,
         _id: id,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
+        ...itemInRoutine,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1,
       });
       //================================================
     } else {
@@ -94,7 +94,7 @@ function Detail() {
     }
   };
 
-  const removeFromCart = () => {
+  const removeFromRoutine = () => {
     dispatch({
       type: REMOVE_FROM_ROUTINE,
       _id: currentExercise._id,
@@ -115,10 +115,10 @@ function Detail() {
 
           <p>
             {/* <strong>Price:</strong>${currentExercise.price}{' '} */}
-            <button onClick={addToCart}>Add Workout</button>
+            <button onClick={addToRoutine}>Add Workout</button>
             <button
               disabled={!cart.find((p) => p._id === currentExercise._id)}
-              onClick={removeFromCart}
+              onClick={removeFromRoutine}
             >
               Remove Workout
             </button>
@@ -130,7 +130,7 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      {/* <Cart /> */}
+      {/* <Routine /> */}
     </>
   );
 }
