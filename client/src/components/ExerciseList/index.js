@@ -47,7 +47,7 @@ function ExerciseList() {
     <div className="my-2">
       <h2>Our exercises:</h2>
       {state.exercises.length ? (
-        <div className="flex-row">
+        <div className="d-flex flex-wrap">
           {filterExercises().map((exercise) => (
             <ExerciseItem
               key={exercise._id}
