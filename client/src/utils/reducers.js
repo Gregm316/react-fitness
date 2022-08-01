@@ -1,16 +1,16 @@
 import { useReducer } from 'react';
 import {
   UPDATE_EXERCISE,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  UPDATE_CART_REPS,
-  UPDATE_CART_WEIGHT,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
+  ADD_TO_ROUTINE,
+  UPDATE_SETS,
+  UPDATE_REPS,
+  UPDATE_WEIGHT,
+  REMOVE_FROM_ROUTINE,
+  ADD_MULTIPLE_TO_ROUTINE,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-  CLEAR_CART,
-  TOGGLE_CART,
+  CLEAR_ROUTINE,
+  TOGGLE_ROUTINE,
 } from './actions';
 
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
@@ -23,26 +23,26 @@ export const reducer = (state, action) => {
         exercises: [...action.exercises],
       };
 
-    case ADD_TO_CART:
+    case ADD_TO_ROUTINE:
       return {
         ...state,
         cartOpen: true,
         cart: [...state.cart, action.exercise],
       };
-    case ADD_MULTIPLE_TO_CART:
+    case ADD_MULTIPLE_TO_ROUTINE:
       return {
         ...state,
         cart: [...state.cart, ...action.exercises],
       };
     // Returns a copy of state, sets the cartOpen to true and maps through the items in the cart.
-    // If the item's `id` matches the `id` that was provided in the action.payload, we update the purchase quantity.
-    case UPDATE_CART_QUANTITY:
+    // If the item's `id` matches the `id` that was provided in the action.payload, we update the set quantity.
+    case UPDATE_SETS:
       return {
         ...state,
         cartOpen: true,
         cart: state.cart.map((exercise) => {
           if (action._id === exercise._id) {
-            exercise.purchaseQuantity = action.purchaseQuantity;
+            exercise.setQuantity = action.setQuantity;
             //==========================================
             exercise.repQuantity = action.repQuantity;
             exercise.weightQuantity = action.weightQuantity;
@@ -52,7 +52,7 @@ export const reducer = (state, action) => {
         }),
       };
 
-    case UPDATE_CART_REPS:
+    case UPDATE_REPS:
       return {
         ...state,
         cartOpen: true,
@@ -66,7 +66,7 @@ export const reducer = (state, action) => {
         }),
       };
 
-      case UPDATE_CART_WEIGHT:
+      case UPDATE_WEIGHT:
         return {
           ...state,
           cartOpen: true,
@@ -83,7 +83,7 @@ export const reducer = (state, action) => {
 
     // First we iterate through each item in the cart and check to see if the `exercise._id` matches the `action._id`
     // If so, we remove it from our cart and set the updated state to a variable called `newState`
-    case REMOVE_FROM_CART:
+    case REMOVE_FROM_ROUTINE:
       let newState = state.cart.filter((exercise) => {
         return exercise._id !== action._id;
       });
@@ -96,14 +96,14 @@ export const reducer = (state, action) => {
         cart: newState,
       };
 
-    case CLEAR_CART:
+    case CLEAR_ROUTINE:
       return {
         ...state,
         cartOpen: false,
         cart: [],
       };
 
-    case TOGGLE_CART:
+    case TOGGLE_ROUTINE:
       return {
         ...state,
         cartOpen: !state.cartOpen,

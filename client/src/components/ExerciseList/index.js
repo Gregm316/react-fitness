@@ -55,6 +55,7 @@ function ExerciseList() {
               image={exercise.image}
               name={exercise.name}
               // price={exercise.price}
+              mgroup={exercise.mgroup} 
               quantity={exercise.quantity}
             />
           ))}

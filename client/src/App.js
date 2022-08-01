@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -17,6 +17,7 @@ import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import DailyRoutine from './pages/DailyRoutine';
+import { NotificationContext } from './Notifications/NotificationProvider';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,45 +39,46 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const contextValue = useContext(NotificationContext);
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/success" 
-                element={<Success />} 
-              />
-              <Route 
-                path="/dailyRoutine" 
-                element={<DailyRoutine />} 
-              />
-              <Route 
-                path="/exercises/:id" 
-                element={<Detail />} 
-              />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
-              />
-            </Routes>
-          </StoreProvider>
-        </div>
-      </Router>
+        <Router>
+          <div className='background-color'>
+            <StoreProvider>
+              <Nav />
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/login"
+                  element={<Login />}
+                />
+                <Route
+                  path="/signup"
+                  element={<Signup />}
+                />
+                <Route
+                  path="/success"
+                  element={<Success />}
+                />
+                <Route
+                  path="/dailyRoutine"
+                  element={<DailyRoutine />}
+                />
+                <Route
+                  path="/exercises/:id"
+                  element={<Detail />}
+                />
+                <Route
+                  path="*"
+                  element={<NoMatch />}
+                />
+              </Routes>
+            </StoreProvider>
+          </div>
+        </Router>
     </ApolloProvider>
   );
 }
