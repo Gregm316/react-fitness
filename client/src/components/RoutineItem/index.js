@@ -8,6 +8,8 @@ import { storeKeyNameFromField } from '@apollo/client/utilities';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { NotificationContext } from '../../Notifications/NotificationProvider';
 import { v4 } from "uuid";
+import NotesList from '../Notes/NotesList';
+import { nanoid } from 'nanoid';
 
 
 const RoutineItem = ({ item }) => {
@@ -158,6 +160,66 @@ const RoutineItem = ({ item }) => {
     }
   }
 
+  const [notes, setNotes] = useState([
+    // {
+    //   id: nanoid(),
+    //   text: 'This is my first note!',
+    //   date: '15/04/2021',
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: 'This is my second note!',
+    //   date: '21/04/2021',
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: 'This is my third note!',
+    //   date: '28/04/2021',
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: 'This is my new note!',
+    //   date: '30/04/2021',
+    // },
+  ]);
+
+  const [searchText, setSearchText] = useState('');
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(
+      localStorage.getItem('react-notes-app-data')
+    );
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify(notes)
+    );
+  }, [notes]);
+
+  const addNote = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(),
+    };
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -226,9 +288,16 @@ const RoutineItem = ({ item }) => {
         </div>
         <div className="col-sm-6">
           <div className="row card-spacing">
-            <div className="card">
+            <div>
               <div className="row no-gutters notes-card">
-                <h2>Notes:</h2>
+                <h2 className='note-header'>Notes:</h2>
+                <NotesList
+                  notes={notes.filter((note) =>
+                    note.text.toLowerCase().includes(searchText)
+                  )}
+                  handleAddNote={addNote}
+                  handleDeleteNote={deleteNote}
+                />
               </div>
             </div>
           </div>
