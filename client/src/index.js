@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import NotificationProvider from './Notifications/NotificationProvider';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
+    <NotificationProvider>
       <App />
+    </NotificationProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

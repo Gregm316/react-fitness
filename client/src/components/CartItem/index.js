@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import './style.css'
 import { storeKeyNameFromField } from '@apollo/client/utilities';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { NotificationContext } from '../../Notifications/NotificationProvider';
+import { v4 } from "uuid";
 
 
 const CartItem = ({ item }) => {
@@ -15,6 +17,7 @@ const CartItem = ({ item }) => {
   const [set, setSet] = useState('');
   const [rep, setRep] = useState('');
   const [weight, setWeight] = useState('');
+  const dispatchDelete = useContext(NotificationContext);
   //======================================
 
   const [, dispatch] = useStoreContext();
@@ -64,6 +67,15 @@ const CartItem = ({ item }) => {
     });
     idbPromise('cart', 'delete', { ...item });
 
+    dispatchDelete({
+      type: "ADD_NOTIFICATION",
+      payload: {
+        id: v4(),
+        type: "SUCCESS",
+        message: `${item.name} Removed!`
+      }
+    })
+    
   };
 
   // const onChangeSet = (e) => {
