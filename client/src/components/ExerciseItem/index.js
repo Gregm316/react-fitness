@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { NotificationContext } from "../../Notifications/NotificationProvider";
+import { v4 } from "uuid";
 
 function ExerciseItem(item) {
   const [state, dispatch] = useStoreContext();
+  const dispatchAdd = useContext(NotificationContext);
 
   const {
     image,
@@ -58,7 +61,18 @@ function ExerciseItem(item) {
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
+    //============================================================
 
+    dispatchAdd({
+      type: "ADD_NOTIFICATION",
+      payload: {
+        id: v4(),
+        type: "SUCCESS",
+        message: `${name} Added!`
+      }
+    })
+
+    //============================================================
   }
 
   return (
@@ -72,7 +86,7 @@ function ExerciseItem(item) {
       </Link>
       <div>{mgroup}</div>
       {/* <span>${price}</span> */}
-        <button onClick={addToCart}>Add Workout</button>
+      <button onClick={addToCart}>Add Workout</button>
     </div>
   );
 }
