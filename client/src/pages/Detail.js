@@ -122,7 +122,7 @@ function Detail() {
               <button disabled={!cart.find((p) => p._id === currentExercise._id)} onClick={removeFromRoutine}>Remove Workout</button>
               </div>
             ) : (
-              <span><strong>(log in to add workout)</strong></span>
+              <span><strong><a href="../Login">(log in to add workout)</a></strong></span>
             )}
             
 

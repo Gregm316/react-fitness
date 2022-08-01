@@ -90,7 +90,7 @@ function ExerciseItem(item) {
       {Auth.loggedIn() ? (
         <button onClick={addToRoutine}>Add Workout</button>
       ) : (
-        <span><strong>(log in to add)</strong></span>
+        <span><strong><a href="Login">(log in to add)</a></strong></span>
       )}
 
     </div>
