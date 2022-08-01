@@ -14,27 +14,7 @@ const NotificationProvider = (props) => {
             default:
                 return state
         }
-    }, [
-        // {
-        //     id: v4(),
-        //     type: "SUCCESS",
-        //     message: "Hello world"
-        // },
-        // {
-        //     id: v4(),
-        //     type: "SUCCESS",
-        //     message: "Hello world two"
-        // }
-    ]);
-
-    // dispatch({
-    //     type: "ADD_NOTIFICATION",
-    //     payload: {
-    //         id: v4(),
-    //         type: "SUCCESS",
-    //         message: "new notification"
-    //     }
-    // })
+    }, []);
 
     return (
         <NotificationContext.Provider value={dispatch}>
