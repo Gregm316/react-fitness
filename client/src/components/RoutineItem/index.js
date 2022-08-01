@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, UPDATE_CART_REPS, UPDATE_CART_WEIGHT } from "../../utils/actions";
+import { REMOVE_FROM_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useState, useEffect } from "react";
 import './style.css'
@@ -10,7 +10,7 @@ import { NotificationContext } from '../../Notifications/NotificationProvider';
 import { v4 } from "uuid";
 
 
-const CartItem = ({ item }) => {
+const RoutineItem = ({ item }) => {
 
 
   //======================================
@@ -60,9 +60,9 @@ const CartItem = ({ item }) => {
   // });
   //======================================
 
-  const removeFromCart = item => {
+  const removeFromRoutine = item => {
     dispatch({
-      type: REMOVE_FROM_CART,
+      type: REMOVE_FROM_ROUTINE,
       _id: item._id
     });
     idbPromise('cart', 'delete', { ...item });
@@ -102,18 +102,18 @@ const CartItem = ({ item }) => {
     const value = e.target.value;
     if (value === '0') {
       dispatch({
-        type: REMOVE_FROM_CART,
+        type: REMOVE_FROM_ROUTINE,
         _id: item._id
       });
       idbPromise('cart', 'delete', { ...item });
 
     } else {
       dispatch({
-        type: UPDATE_CART_QUANTITY,
+        type: UPDATE_SETS,
         _id: item._id,
-        purchaseQuantity: parseInt(value)
+        setQuantity: parseInt(value)
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
+      idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
 
     }
   }
@@ -122,14 +122,14 @@ const CartItem = ({ item }) => {
     const value = e.target.value;
     if (value === '0') {
       dispatch({
-        type: REMOVE_FROM_CART,
+        type: REMOVE_FROM_ROUTINE,
         _id: item._id
       });
       idbPromise('cart', 'delete', { ...item });
 
     } else {
       dispatch({
-        type: UPDATE_CART_REPS,
+        type: UPDATE_REPS,
         _id: item._id,
         repQuantity: parseInt(value)
       });
@@ -142,14 +142,14 @@ const CartItem = ({ item }) => {
     const value = e.target.value;
     if (value === '0') {
       dispatch({
-        type: REMOVE_FROM_CART,
+        type: REMOVE_FROM_ROUTINE,
         _id: item._id
       });
       idbPromise('cart', 'delete', { ...item });
 
     } else {
       dispatch({
-        type: UPDATE_CART_WEIGHT,
+        type: UPDATE_WEIGHT,
         _id: item._id,
         weightQuantity: parseInt(value)
       });
@@ -181,7 +181,7 @@ const CartItem = ({ item }) => {
                       min={1}
                       max={100}
                       placeholder="1"
-                      value={item.purchaseQuantity}
+                      value={item.setQuantity}
                       onChange={onChangeSet}
                     />
                     <br></br>
@@ -212,7 +212,7 @@ const CartItem = ({ item }) => {
                     <span
                       role="img"
                       aria-label="trash"
-                      onClick={() => removeFromCart(item)}
+                      onClick={() => removeFromRoutine(item)}
                     ><button className='mt-2'>
                         🗑️ Remove
                       </button>
@@ -232,6 +232,6 @@ const CartItem = ({ item }) => {
   );
 }
 
-export default CartItem;
+export default RoutineItem;
 
 

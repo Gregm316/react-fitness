@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import Cart from '../components/Cart';
+import Routine from '../components/Routine';
 import { useStoreContext } from '../utils/GlobalState';
 import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  UPDATE_CART_REPS,
-  UPDATE_CART_WEIGHT,
-  ADD_TO_CART,
+  REMOVE_FROM_ROUTINE,
+  UPDATE_SETS,
+  UPDATE_REPS,
+  UPDATE_WEIGHT,
+  ADD_TO_ROUTINE,
   UPDATE_EXERCISE,
 } from '../utils/actions';
 import { QUERY_EXERCISE } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
+import Auth from '../utils/auth';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -53,50 +54,50 @@ function Detail() {
     }
   }, [exercises, data, loading, dispatch, id]);
 
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
+  const addToRoutine = () => {
+    const itemInRoutine = cart.find((cartItem) => cartItem._id === id);
+    if (itemInRoutine) {
       dispatch({
-        type: UPDATE_CART_QUANTITY,
+        type: UPDATE_SETS,
         _id: id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        ...itemInRoutine,
+        setQuantity: parseInt(itemInRoutine.setQuantity) + 1,
       });
       //================================================
       dispatch({
-        type: UPDATE_CART_REPS,
+        type: UPDATE_REPS,
         _id: id,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        repQuantity: parseInt(itemInCart.repQuantity) + 1,
+        ...itemInRoutine,
+        repQuantity: parseInt(itemInRoutine.repQuantity) + 1,
       });
       dispatch({
-        type: UPDATE_CART_WEIGHT,
+        type: UPDATE_WEIGHT,
         _id: id,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1,
       });
       idbPromise('cart', 'put', {
-        ...itemInCart,
-        weightQuantity: parseInt(itemInCart.weightQuantity) + 1,
+        ...itemInRoutine,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1,
       });
       //================================================
     } else {
       dispatch({
-        type: ADD_TO_CART,
-        exercise: { ...currentExercise, purchaseQuantity: 1 },
+        type: ADD_TO_ROUTINE,
+        exercise: { ...currentExercise, setQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...currentExercise, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...currentExercise, setQuantity: 1 });
     }
   };
 
-  const removeFromCart = () => {
+  const removeFromRoutine = () => {
     dispatch({
-      type: REMOVE_FROM_CART,
+      type: REMOVE_FROM_ROUTINE,
       _id: currentExercise._id,
     });
 
@@ -115,13 +116,16 @@ function Detail() {
 
           <p>
             {/* <strong>Price:</strong>${currentExercise.price}{' '} */}
-            <button onClick={addToCart}>Add Workout</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentExercise._id)}
-              onClick={removeFromCart}
-            >
-              Remove Workout
-            </button>
+            {Auth.loggedIn() ? (
+              <div>
+              <button onClick={addToRoutine}>Add Workout</button>
+              <button disabled={!cart.find((p) => p._id === currentExercise._id)} onClick={removeFromRoutine}>Remove Workout</button>
+              </div>
+            ) : (
+              <span><strong>(log in to add workout)</strong></span>
+            )}
+            
+
           </p>
           <p>(Hover over image for demonstration)</p>
           <img className="static img-demo" src={`/images/${currentExercise.image}`} />
@@ -130,7 +134,7 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      {/* <Cart /> */}
+      {/* <Routine /> */}
     </>
   );
 }

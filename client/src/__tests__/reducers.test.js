@@ -1,14 +1,14 @@
 import { reducer } from '../utils/reducers';
 import {
   UPDATE_EXERCISE,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
+  ADD_TO_ROUTINE,
+  UPDATE_QUANTITY,
+  REMOVE_FROM_ROUTINE,
+  ADD_MULTIPLE_TO_ROUTINE,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-  CLEAR_CART,
-  TOGGLE_CART
+  CLEAR_ROUTINE,
+  TOGGLE_ROUTINE
 } from '../utils/actions';
 
 const initialState = {
@@ -40,9 +40,9 @@ test('UPDATE_EXERCISE', () => {
   expect(initialState.exercises.length).toBe(0);
 });
 
-test('ADD_TO_CART', () => {
+test('ADD_TO_ROUTINE', () => {
   let newState = reducer(initialState, {
-    type: ADD_TO_CART,
+    type: ADD_TO_ROUTINE,
     exercise: { purchaseQuantity: 1 }
   });
 
@@ -50,9 +50,9 @@ test('ADD_TO_CART', () => {
   expect(initialState.cart.length).toBe(2);
 });
 
-test('UPDATE_CART_QUANTITY', () => {
+test('UPDATE_QUANTITY', () => {
   let newState = reducer(initialState, {
-    type: UPDATE_CART_QUANTITY,
+    type: UPDATE_QUANTITY,
     _id: '1',
     purchaseQuantity: 3
   });
@@ -63,9 +63,9 @@ test('UPDATE_CART_QUANTITY', () => {
   expect(initialState.cartOpen).toBe(false);
 });
 
-test('REMOVE_FROM_CART', () => {
+test('REMOVE_FROM_ROUTINE', () => {
   let newState1 = reducer(initialState, {
-    type: REMOVE_FROM_CART,
+    type: REMOVE_FROM_ROUTINE,
     _id: '1'
   });
 
@@ -74,7 +74,7 @@ test('REMOVE_FROM_CART', () => {
   expect(newState1.cart[0]._id).toBe('2');
 
   let newState2 = reducer(newState1, {
-    type: REMOVE_FROM_CART,
+    type: REMOVE_FROM_ROUTINE,
     _id: '2'
   });
 
@@ -84,9 +84,9 @@ test('REMOVE_FROM_CART', () => {
   expect(initialState.cart.length).toBe(2);
 });
 
-test('ADD_MULTIPLE_TO_CART', () => {
+test('ADD_MULTIPLE_TO_ROUTINE', () => {
   let newState = reducer(initialState, {
-    type: ADD_MULTIPLE_TO_CART,
+    type: ADD_MULTIPLE_TO_ROUTINE,
     exercises: [{}, {}]
   });
 
@@ -114,9 +114,9 @@ test('UPDATE_CURRENT_CATEGORY', () => {
   expect(initialState.currentCategory).toBe('1');
 });
 
-test('CLEAR_CART', () => {
+test('CLEAR_ROUTINE', () => {
   let newState = reducer(initialState, {
-    type: CLEAR_CART
+    type: CLEAR_ROUTINE
   });
 
   expect(newState.cartOpen).toBe(false);
@@ -124,16 +124,16 @@ test('CLEAR_CART', () => {
   expect(initialState.cart.length).toBe(2);
 });
 
-test('TOGGLE_CART', () => {
+test('TOGGLE_ROUTINE', () => {
   let newState = reducer(initialState, {
-    type: TOGGLE_CART
+    type: TOGGLE_ROUTINE
   });
 
   expect(newState.cartOpen).toBe(true);
   expect(initialState.cartOpen).toBe(false);
   
   let newState2 = reducer(newState, {
-    type: TOGGLE_CART
+    type: TOGGLE_ROUTINE
   });
 
   expect(newState2.cartOpen).toBe(false);
