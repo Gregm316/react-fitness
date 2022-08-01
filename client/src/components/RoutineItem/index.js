@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_ROUTINE, UPDATE_SETS, UPDATE_REPS, UPDATE_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -75,7 +75,7 @@ const RoutineItem = ({ item }) => {
         message: `${item.name} Removed!`
       }
     })
-    
+
   };
 
   // const onChangeSet = (e) => {
@@ -225,7 +225,13 @@ const RoutineItem = ({ item }) => {
           </div>
         </div>
         <div className="col-sm-6">
-          <h2>Notes:</h2>
+          <div className="row">
+            <div className="card">
+              <div className="row no-gutters notes-card">
+                <h2>Notes:</h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
