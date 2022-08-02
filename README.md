@@ -13,7 +13,7 @@
 
 ## [Description](#table-of-contents)
 
-React Fitness is an application that allows users to manage their daily workout routine. Users can select a number of different exercises from five main muscle groups and incorporate those exercises into their daily routine. Users are also given the ability to select their sets, reps and weight for each saved exercise. React fitness also shows users short videos for each exercise that demonstrate proper form to ensure the user's safety when working out. This application's main purpose is to provide the user a platform to manage their daily exercise routines and help improve their overall health and well being. 
+React Fitness is an application that allows users to manage their daily workout routine. Users can select a number of different exercises from five main muscle groups and incorporate those exercises into their daily routine. Users are also given the ability to select their sets, reps and weight for each saved exercise, as well as leave workout notes for themselves. React fitness also shows users short videos for each exercise that demonstrate proper form to ensure the user's safety when working out. This application's main purpose is to provide the user a platform to manage their daily exercise routines and help improve their overall health and well being. 
 
 ## [Technologies](#table-of-contents)
 This application utilizes the following technology:
@@ -35,30 +35,30 @@ When a user loads the application, they will be shown a landing page consisting 
 
 The user will have the option to select a specific exercise, which will direct them to the exercise page. The exercise page consists of information regarding that particular exercise and a short video demonstrating correct form for that exercise once the user hovers over the exercise diagram. If the user has completed signup or has logged in with their email and password, they will have the ability to add that exercise to their daily routine page by clicking the button to do so. 
 
-The user's exercise page will display all of their current exercises and the user will be able to select the weight for that exercise, along with the ability to select the exact sets and reps for each exercise. User's will also be able to add and remove exercises with just the click of a button. 
+The user's exercise page will display all of their current exercises and the user will be able to select the weight for that exercise, along with the ability to select the exact sets and reps for each exercise. User's will also be able to add and remove exercises with just the click of a button. The page also allows users to write workout notes for themselves, which are saved to local storage, giving them the ability to add and remove notes as they choose.
 
 ### **Click on the following link to view the deployed application:** 
-Link goes here
+https://react-fitness-2022.herokuapp.com/
 
 ### **Screenshots of React Fitness:**
 
 ### Home Page
-![Landing Page](./public/images/)
-
-### Muscle Group Page
-![Muscle Group Page](./public/images/)
+![Landing Page](./client/public/images/home-page-1.png)
 
 ### Exercise Page
-![Exercise Page](./public/images/)
+![Exercise Page](./client/public/images/exercise-page-gif.gif)
+
+### Add Exercise to Daily Routine
+![Add Exercise GIF](./client/public/images/react-fitness-gif.gif)
 
 ### Daily Routine Page
-![Daily Routine Page](./public/images/)
+![Daily Routine Page](./client/public/images/daily-routine-page.png)
 
 ### Login Page
-![Login Page](./public/images/)
+![Login Page](./client/public/images/login-page.png)
 
 ### Signup Page
-![Signup Page](./public/images/)
+![Signup Page](./client//public/images/signup-page.png)
 
 
 ## [Contributing](#table-of-contents)
