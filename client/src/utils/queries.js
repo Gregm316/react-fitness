@@ -6,7 +6,6 @@ export const QUERY_EXERCISE = gql`
       _id
       name
       description
-
       quantity
       image
       demo
@@ -32,7 +31,6 @@ export const QUERY_ALL_EXERCISE = gql`
       _id
       name
       description
-
       quantity
       sets
       weight

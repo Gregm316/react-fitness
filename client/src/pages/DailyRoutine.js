@@ -16,7 +16,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const DailyRoutine = () => {
   const [state, dispatch] = useStoreContext();
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
     if (data) {

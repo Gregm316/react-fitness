@@ -20,8 +20,11 @@ import { NotificationContext } from "../Notifications/NotificationProvider";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
+  
+  //dispatch notifications on add and delete click
   const dispatchDelete = useContext(NotificationContext);
   const dispatchAdd = useContext(NotificationContext);
+
   const { id } = useParams();
 
   const [currentExercise, setCurrentExercise] = useState({});
@@ -31,7 +34,6 @@ function Detail() {
   const { exercises, cart } = state;
 
   useEffect(() => {
-    // already in global store
     if (exercises.length) {
       setCurrentExercise(exercises.find((exercise) => exercise._id === id));
     }
@@ -86,15 +88,15 @@ function Detail() {
       });
       idbPromise('cart', 'put', {
         ...itemInRoutine,
-        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 1,
+        weightQuantity: parseInt(itemInRoutine.weightQuantity) + 5,
       });
       //================================================
     } else {
       dispatch({
         type: ADD_TO_ROUTINE,
-        exercise: { ...currentExercise, setQuantity: 1 },
+        exercise: { ...currentExercise, setQuantity: 1, reqQuantity: 1, weightQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...currentExercise, setQuantity: 1 });
+      idbPromise('cart', 'put', { ...currentExercise, setQuantity: 1, reqQuantity: 1, weightQuantity: 1 });
     }
     dispatchAdd({
       type: "ADD_NOTIFICATION",

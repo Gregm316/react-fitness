@@ -13,10 +13,10 @@ import {
   TOGGLE_ROUTINE,
 } from './actions';
 
-// The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
+// Accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {
   switch (action.type) {
-    // Returns a copy of state with an update exercises array. We use the action.exercises property and spread it's contents into the new array.
+    // Returns a copy of state with an update exercises array using the action.exercises property and spread it's contents into the new array.
     case UPDATE_EXERCISE:
       return {
         ...state,

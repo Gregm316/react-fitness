@@ -9,9 +9,7 @@ import { v4 } from "uuid";
 
 const RoutineItem = ({ item }) => {
 
-  //======================================
   const dispatchDelete = useContext(NotificationContext);
-  //======================================
 
   const [, dispatch] = useStoreContext();
 
@@ -33,6 +31,7 @@ const RoutineItem = ({ item }) => {
 
   };
 
+  //handles changing of sets
   const onChangeSet = (e) => {
     const value = e.target.value;
       dispatch({
@@ -43,6 +42,7 @@ const RoutineItem = ({ item }) => {
       idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
   }
 
+  //handles changing of reps
   const onChangeRep = (e) => {
     const value = e.target.value;
       dispatch({
@@ -53,6 +53,7 @@ const RoutineItem = ({ item }) => {
       idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
   }
 
+  //handles changing of weights
   const onChangeWeight = (e) => {
     const value = e.target.value;
       dispatch({
