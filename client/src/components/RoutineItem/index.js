@@ -221,89 +221,75 @@ const RoutineItem = ({ item }) => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm">
-          <div className="card">
-            <div className="row no-gutters">
-              <div className="col-sm-6">
-                <img className='daily-img'
-                  src={`/images/${item.image}`}
-                  alt=""
-                />
-              </div>
-              <div className="col-sm-6">
-                <div className="card-body card-text card-spacing">
-                  <h5 className="card-title">{item.name}</h5>
-                  <div >
-                    <span>Sets:</span>
-                    <input
-                      type="number"
-                      name='set'
-                      min={1}
-                      max={100}
-                      placeholder="1"
-                      value={item.setQuantity}
-                      onChange={onChangeSet}
-                    />
-                    <br></br>
-                    <span>Reps:</span>
-                    <input
-                      type="number"
-                      name='rep'
-                      min={1}
-                      max={100}
-                      placeholder="1"
-                      value={item.repQuantity}
-                      onChange={onChangeRep}
-                    />
-                    <br></br>
-                    <span>Weight:</span>
-                    <input
-                      type="number"
-                      name='weight'
-                      min={1}
-                      max={500}
-                      step={5}
-                      placeholder="100"
-                      value={item.weightQuantity}
-                      onChange={onChangeWeight}
-                    />
-                    <span>lbs.</span>
-                    <br></br>
-                    <span
-                      role="img"
-                      aria-label="trash"
-                      onClick={() => removeFromRoutine(item)}
-                    ><button className='mt-2'>
-                        🗑️ Remove
-                      </button>
-                    </span>
+    <div>
+      {/* <div className="container">
+        <div className="row">
+          <div className="col-sm-6"> */}
+            <div className="card">
+              <div className="row no-gutters">
+                <div className="col-sm-6">
+                  <img className='daily-img'
+                    src={`/images/${item.image}`}
+                    alt=""
+                  />
+                </div>
+                <div className="col-sm-6">
+                  <div className="card-body card-text card-spacing">
+                    <h5 className="card-title">{item.name}</h5>
+                    <div >
+                      <span>Sets:</span>
+                      <input
+                        type="number"
+                        name='set'
+                        min={1}
+                        max={100}
+                        placeholder="1"
+                        value={item.setQuantity}
+                        onChange={onChangeSet}
+                      />
+                      <br></br>
+                      <span>Reps:</span>
+                      <input
+                        type="number"
+                        name='rep'
+                        min={1}
+                        max={100}
+                        placeholder="1"
+                        value={item.repQuantity}
+                        onChange={onChangeRep}
+                      />
+                      <br></br>
+                      <span>Weight:</span>
+                      <input
+                        type="number"
+                        name='weight'
+                        min={1}
+                        max={500}
+                        step={5}
+                        placeholder="100"
+                        value={item.weightQuantity}
+                        onChange={onChangeWeight}
+                      />
+                      <span>lbs.</span>
+                      <br></br>
+                      <span
+                        role="img"
+                        aria-label="trash"
+                        onClick={() => removeFromRoutine(item)}
+                      ><button className='mt-2'>
+                          🗑️ Remove
+                        </button>
+                      </span>
+                    </div>
+                    {/* <a href="#" class="btn btn-primary">View Profile</a> */}
                   </div>
-                  {/* <a href="#" class="btn btn-primary">View Profile</a> */}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-sm-6">
-          <div className="row card-spacing">
-            <div>
-              <div className="row no-gutters notes-card">
-                <h2 className='note-header'>Notes:</h2>
-                <NotesList
-                  notes={notes.filter((note) =>
-                    note.text.toLowerCase().includes(searchText)
-                  )}
-                  handleAddNote={addNote}
-                  handleDeleteNote={deleteNote}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 

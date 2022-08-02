@@ -11,7 +11,7 @@ const NotesList = ({
 		<div className='notes-list'>
             <AddNote handleAddNote={handleAddNote} />
 			{notes.map((note) => (
-				<Note
+				<Note key={note.id}
 					id={note.id}
 					text={note.text}
 					// date={note.date}
