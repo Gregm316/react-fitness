@@ -66,17 +66,6 @@ const resolvers = {
           description: exercises[i].description,
           images: [`${url}/images/${exercises[i].image}`]
         });
-
-        // const price = await stripe.prices.create({
-        //   exercise: exercise.id,
-        //   unit_amount: exercises[i].price * 100,
-        //   currency: 'usd',
-        // });
-
-        // line_items.push({
-        //   price: price.id,
-        //   quantity: 1
-        // });
       }
 
       const session = await stripe.checkout.sessions.create({

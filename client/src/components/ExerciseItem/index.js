@@ -17,23 +17,10 @@ function ExerciseItem(item) {
     image,
     name,
     _id,
-    // price,
-    // quantity,
     mgroup
   } = item;
 
   const { cart } = state
-
-  const addError = () => {
-    dispatchError({
-      type: "ADD_NOTIFICATION",
-      payload: {
-        id: v4(),
-        type: "ERROR",
-        message: `Log in to add workout!`
-      }
-    })
-  }
 
   const addToRoutine = () => {
     const itemInRoutine = cart.find((cartItem) => cartItem._id === _id)
@@ -70,9 +57,9 @@ function ExerciseItem(item) {
     } else {
       dispatch({
         type: ADD_TO_ROUTINE,
-        exercise: { ...item, setQuantity: 1 }
+        exercise: { ...item, setQuantity: 4, repQuantity: 10, weightQuantity: 100 }
       });
-      idbPromise('cart', 'put', { ...item, setQuantity: 1 });
+      idbPromise('cart', 'put', { ...item, setQuantity: 4, repQuantity: 10, weightQuantity: 100 });
     }
     //============================================================
 
@@ -98,7 +85,6 @@ function ExerciseItem(item) {
         <p>{name}</p>
       </Link>
       <div>{mgroup}</div>
-      {/* <span>${price}</span> */}
       {Auth.loggedIn() ? (
         <button className="mb-5" onClick={addToRoutine}>Add Workout 💪</button>
       ) : (

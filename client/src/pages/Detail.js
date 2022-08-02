@@ -136,7 +136,6 @@ function Detail() {
           <p>{currentExercise.description}</p>
 
           <p>
-            {/* <strong>Price:</strong>${currentExercise.price}{' '} */}
             {Auth.loggedIn() ? (
               <div>
               <button onClick={addToRoutine}>Add Workout 💪</button>
@@ -155,7 +154,6 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      {/* <Routine /> */}
     </>
   );
 }
