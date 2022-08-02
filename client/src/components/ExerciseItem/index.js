@@ -57,9 +57,9 @@ function ExerciseItem(item) {
     } else {
       dispatch({
         type: ADD_TO_ROUTINE,
-        exercise: { ...item, setQuantity: 1 }
+        exercise: { ...item, setQuantity: 4, repQuantity: 10, weightQuantity: 100 }
       });
-      idbPromise('cart', 'put', { ...item, setQuantity: 1 });
+      idbPromise('cart', 'put', { ...item, setQuantity: 4, repQuantity: 10, weightQuantity: 100 });
     }
     //============================================================
 
