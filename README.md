@@ -43,22 +43,22 @@ Link goes here
 ### **Screenshots of React Fitness:**
 
 ### Home Page
-![Landing Page](./public/images/)
-
-### Muscle Group Page
-![Muscle Group Page](./public/images/)
+![Landing Page](./client/public/images/home-page-1.png)
 
 ### Exercise Page
-![Exercise Page](./public/images/)
+![Exercise Page](./client/public/images/exercise-page-gif.gif)
+
+### Add Exercise to Daily Routine
+![Add Exercise GIF](./client/public/images/react-fitness-gif.gif)
 
 ### Daily Routine Page
-![Daily Routine Page](./public/images/)
+![Daily Routine Page](./client/public/images/daily-routine-page.png)
 
 ### Login Page
-![Login Page](./public/images/)
+![Login Page](./client/public/images/login-page.png)
 
 ### Signup Page
-![Signup Page](./public/images/)
+![Signup Page](./client//public/images/signup-page.png)
 
 
 ## [Contributing](#table-of-contents)
