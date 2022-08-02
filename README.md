@@ -38,7 +38,7 @@ The user will have the option to select a specific exercise, which will direct t
 The user's exercise page will display all of their current exercises and the user will be able to select the weight for that exercise, along with the ability to select the exact sets and reps for each exercise. User's will also be able to add and remove exercises with just the click of a button. The page also allows users to write workout notes for themselves, which are saved to local storage, giving them the ability to add and remove notes as they choose.
 
 ### **Click on the following link to view the deployed application:** 
-Link goes here
+https://react-fitness-2022.herokuapp.com/
 
 ### **Screenshots of React Fitness:**
 
