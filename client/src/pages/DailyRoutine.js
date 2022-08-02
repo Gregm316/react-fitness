@@ -72,13 +72,24 @@ const DailyRoutine = () => {
     setNotes(newNotes);
   };
 
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
+  
+  function formatDate(date) {
+    return [
+      padTo2Digits(date.getDate()),
+      padTo2Digits(date.getMonth() + 1),
+      date.getFullYear(),
+    ].join('/');
+  }
 
   return (
     <div className="cart">
-      <h2>Workouts for Today</h2>
+      <h2>Workouts for Today {formatDate(new Date())}</h2>
       {state.cart.length ? (
-        <div className="container">
-          <div className="row">
+        <div className="card card-margin-r">
+          <div className="row daily-background">
             <div className="col-sm-6">
               {state.cart.map((item) => (
                 <RoutineItem key={item._id} item={item} />
