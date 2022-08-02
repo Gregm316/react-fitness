@@ -35,62 +35,32 @@ const RoutineItem = ({ item }) => {
 
   const onChangeSet = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_ROUTINE,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
-
-    } else {
       dispatch({
         type: UPDATE_SETS,
         _id: item._id,
         setQuantity: parseInt(value)
       });
       idbPromise('cart', 'put', { ...item, setQuantity: parseInt(value) });
-
-    }
   }
 
   const onChangeRep = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_ROUTINE,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
-
-    } else {
       dispatch({
         type: UPDATE_REPS,
         _id: item._id,
         repQuantity: parseInt(value)
       });
       idbPromise('cart', 'put', { ...item, repQuantity: parseInt(value) });
-
-    }
   }
 
   const onChangeWeight = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_ROUTINE,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
-
-    } else {
       dispatch({
         type: UPDATE_WEIGHT,
         _id: item._id,
         weightQuantity: parseInt(value)
       });
       idbPromise('cart', 'put', { ...item, weightQuantity: parseInt(value) });
-
-    }
   }
 
   return (
