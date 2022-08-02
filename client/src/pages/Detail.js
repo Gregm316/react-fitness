@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import Routine from '../components/Routine';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_ROUTINE,
