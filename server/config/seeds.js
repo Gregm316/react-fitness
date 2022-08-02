@@ -25,8 +25,6 @@ db.once('open', async () => {
       demo: 'squat-demo.gif',
       category: categories[0]._id,
       mgroup: "Quads, Glutes, Adductors",
-      // price: 2.99,
-      quantity: 500
     },
     {
       name: 'Leg Press',
@@ -36,9 +34,6 @@ db.once('open', async () => {
       image: 'Leg-Press.jpg',
       demo: 'legpress-demo.gif',
       mgroup: "Quads, Glutes, Adductors",
-      // price: 1.99,
-
-      quantity: 500
     },
     {
       name: 'Leg Extension',
@@ -48,8 +43,6 @@ db.once('open', async () => {
       image: 'leg-extension.png',
       demo: 'legextension-demo.gif',
       mgroup: "Quads",
-      // price: 1.99,
-      quantity: 500
     },
     {
       name: 'Leg Curls',
@@ -59,8 +52,6 @@ db.once('open', async () => {
       image: 'leg-curls.jpg',
       demo: 'legcurls-demo.gif',
       mgroup: "Hamstrings",
-      // price: 1.99,
-      quantity: 500
     },
     {
       name: 'Bench Press',
@@ -70,8 +61,6 @@ db.once('open', async () => {
       image: 'benchpress.png',
       demo: 'benchpress-demo.gif',
       mgroup: "Chest, Shoulders, Triceps",
-      // price: 7.99,
-      quantity: 20
     },
     {
       name: 'Dumbbell Fly',
@@ -81,8 +70,6 @@ db.once('open', async () => {
       image: 'dumbbell-fly.png',
       demo: 'dumbbellfly-demo.gif',
       mgroup: "Chest, Shoulders",
-      // price: 3.99,
-      quantity: 50
     },
     {
       name: 'Incline Dumbell Press',
@@ -92,8 +79,6 @@ db.once('open', async () => {
       image: 'incline-dumbbell-press.png',
       demo: 'inclinedumbbellpress-demo.gif',
       mgroup: "Chest, Shoulders, Triceps",
-      // price: 14.99,
-      quantity: 100
     },
     {
       name: 'Barbell Bent-Over Row',
@@ -103,8 +88,6 @@ db.once('open', async () => {
       image: 'bentover-rows.png',
       demo: 'barbellbentoverrow-demo.gif',
       mgroup: "Lats, Biceps, Traps",
-      // price: 399.99,
-      quantity: 30
     },
     {
       name: 'Lat Pulldown',
@@ -114,8 +97,6 @@ db.once('open', async () => {
       image: 'lat-pulldown.jpg',
       demo: 'latpulldown-demo.gif',
       mgroup: "Lats, Biceps",
-      // price: 199.99,
-      quantity: 30
     },
     {
       name: 'Deadlift',
@@ -125,8 +106,6 @@ db.once('open', async () => {
       image: 'deadlift.jpg',
       demo: 'deadlift-demo.gif',
       mgroup: "Lower-back, Glutes, Hamstrings",
-      // price: 199.99,
-      quantity: 30
     },
     {
       name: 'Barbell Curl',
@@ -136,8 +115,6 @@ db.once('open', async () => {
       image: 'barbell-curl.jpg',
       demo: 'barbellcurl-demo.gif',
       mgroup: "Biceps, Forearms",
-      // price: 9.99,
-      quantity: 100
     },
     {
       name: 'Preacher Curl',
@@ -147,7 +124,6 @@ db.once('open', async () => {
       image: 'preacher-curl.jpg',
       demo: 'preachercurl-demo.gif',
       mgroup: "Biceps, Forearms",
-      // price: 9.99,
       quantity: 100
     },
     {
@@ -158,8 +134,6 @@ db.once('open', async () => {
       image: 'tricep-extension.jpg',
       demo: 'tricepextensions-demo.gif',
       mgroup: "Triceps",
-      // price: 9.99,
-      quantity: 100
     },
     {
       name: 'Close Grip Bench Press',
@@ -169,8 +143,6 @@ db.once('open', async () => {
       image: 'close-grip-bench.jpg',
       demo: 'closegripbench-demo.gif',
       mgroup: "Triceps, Chest, Shoulders",
-      // price: 9.99,
-      quantity: 100
     },
     {
       name: 'Dumbbell Shoulder Press',
@@ -180,8 +152,6 @@ db.once('open', async () => {
       image: 'shoulder-press.png',
       demo: 'shoulderpress-demo.gif',
       mgroup: "Shoulders, Triceps, Traps",
-      // price: 1.99,
-      quantity: 1000
     },
     {
       name: 'Lateral Raise',
@@ -191,8 +161,6 @@ db.once('open', async () => {
       image: 'lateral-raise.png',
       demo: 'lateralraises-demo.gif',
       mgroup: "Shoulder, Traps",
-      // price: 2.99,
-      quantity: 1000
     },
     {
       name: 'Arnold Press',
@@ -202,8 +170,6 @@ db.once('open', async () => {
       image: 'arnold-press.jpg',
       demo: 'arnoldpress-demo.gif',
       mgroup: "Shoulder, Traps, Lats",
-      // price: 7.99,
-      quantity: 100
     },
   ]);
 

@@ -22,10 +22,15 @@
   margin-left: 10px;
 }
 
-.notes-card{
+/* .notes-card{
   height: 210px;
-}
+} */
 
 .card-spacing{
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+}
+
+.note-header{
+  margin: 0;
+  padding: 0;
 }
