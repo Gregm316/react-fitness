@@ -65,7 +65,7 @@ const RoutineItem = ({ item }) => {
 
   return (
     <div>
-      <div className="card">
+      <div className="card card-margin-l">
         <div className="row no-gutters">
           <div className="col-sm-6">
             <img className='daily-img'

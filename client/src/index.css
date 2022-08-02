@@ -98,7 +98,7 @@ header {
   background: var(--primary);
   justify-content: space-between;
   align-items: flex-end;
-  height: 135px;
+  height: 145px;
 }
 
 header a {
@@ -251,7 +251,7 @@ input:focus {
 
 .notification-wrapper {
   position: fixed;
-  top: 105px;
+  top: 125px;
   right: 10px;
   width: 300px;
 }
@@ -309,3 +309,14 @@ input:focus {
   background-color: red;
 }
 
+.daily-background{
+  background-color: beige;
+}
+
+.card-margin-l{
+  margin-left: 50px;
+}
+
+.card-margin-r{
+  margin-right: 50px;
+}
