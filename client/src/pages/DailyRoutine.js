@@ -37,44 +37,7 @@ const DailyRoutine = () => {
     }
   }, [state.cart.length, dispatch]);
 
-  function submitCheckout() {
-    const exerciseIds = [];
-
-    state.cart.forEach((item) => {
-      for (let i = 0; i < item.setQuantity; i++) {
-        exerciseIds.push(item._id);
-      }
-    });
-
-    getCheckout({
-      variables: { exercises: exerciseIds },
-    });
-  }
-
-  const [notes, setNotes] = useState([
-    // {
-    //   id: nanoid(),
-    //   text: 'This is my first note!',
-    //   date: '15/04/2021',
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: 'This is my second note!',
-    //   date: '21/04/2021',
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: 'This is my third note!',
-    //   date: '28/04/2021',
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: 'This is my new note!',
-    //   date: '30/04/2021',
-    // },
-  ]);
-
-  const [searchText, setSearchText] = useState('');
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const savedNotes = JSON.parse(
@@ -128,7 +91,7 @@ const DailyRoutine = () => {
                   <h2 className='note-header'>Notes:</h2>
                   <NotesList
                     notes={notes.filter((note) =>
-                      note.text.toLowerCase().includes(searchText)
+                      note.text.toLowerCase()
                     )}
                     handleAddNote={addNote}
                     handleDeleteNote={deleteNote}
