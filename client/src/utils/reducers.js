@@ -26,7 +26,6 @@ export const reducer = (state, action) => {
     case ADD_TO_ROUTINE:
       return {
         ...state,
-        cartOpen: true,
         cart: [...state.cart, action.exercise],
       };
     case ADD_MULTIPLE_TO_ROUTINE:
@@ -39,14 +38,9 @@ export const reducer = (state, action) => {
     case UPDATE_SETS:
       return {
         ...state,
-        cartOpen: true,
         cart: state.cart.map((exercise) => {
           if (action._id === exercise._id) {
             exercise.setQuantity = action.setQuantity;
-            //==========================================
-            exercise.repQuantity = action.repQuantity;
-            exercise.weightQuantity = action.weightQuantity;
-            //==========================================
           }
           return exercise;
         }),
@@ -55,7 +49,6 @@ export const reducer = (state, action) => {
     case UPDATE_REPS:
       return {
         ...state,
-        cartOpen: true,
         cart: state.cart.map((exercise) => {
           if (action._id === exercise._id) {
             //==========================================
@@ -69,10 +62,8 @@ export const reducer = (state, action) => {
       case UPDATE_WEIGHT:
         return {
           ...state,
-          cartOpen: true,
           cart: state.cart.map((exercise) => {
             if (action._id === exercise._id) {
-              exercise.weightQuantity = action.weightQuantity;
               //==========================================
               exercise.weightQuantity = action.weightQuantity;
               //==========================================
@@ -92,21 +83,18 @@ export const reducer = (state, action) => {
       // If not, we set the cartOpen status to  `true`. Then we return an updated cart array set to the value of `newState`.
       return {
         ...state,
-        cartOpen: newState.length > 0,
         cart: newState,
       };
 
     case CLEAR_ROUTINE:
       return {
         ...state,
-        cartOpen: false,
         cart: [],
       };
 
     case TOGGLE_ROUTINE:
       return {
         ...state,
-        cartOpen: !state.cartOpen,
       };
 
     case UPDATE_CATEGORIES:

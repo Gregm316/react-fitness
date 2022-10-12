@@ -8,6 +8,11 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// sets up GraphQL server
+// required typeDefs, defining your GraphQL schema
+// and resolvers, a map of function that populate individual schema fields
+// https://www.apollographql.com/docs/apollo-server/api/apollo-server/
 const server = new ApolloServer({
   typeDefs,
   resolvers,

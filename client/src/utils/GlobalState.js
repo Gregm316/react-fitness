@@ -8,7 +8,6 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useExerciseReducer({
     exercises: [],
     cart: [],
-    cartOpen: false,
     categories: [],
     currentCategory: '',
   });
